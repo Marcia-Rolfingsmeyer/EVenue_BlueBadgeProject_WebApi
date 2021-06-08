@@ -1,5 +1,4 @@
-﻿using EVenue.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +11,7 @@ namespace EVenue.Models.OccasionModels
     {
         public string OccasionName { get; set; }
 
-        public OccasionType TypeOfOccasion { get; set; }
+        //public OccasionType TypeOfOccasion { get; set; }
 
         public DateTime StartTime { get; set; }
 
