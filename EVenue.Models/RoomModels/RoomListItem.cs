@@ -5,41 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EVenue.Data
+namespace EVenue.Models.RoomModels
 {
-    //public enum RoomType
-    //{
-    //    SmallHall = 1,
-    //    MediumHall = 2,
-    //    LargeHall = 3
-    //}
-
-    public class Room
+    public class RoomListItem
     {
-        [Key]
         public int RoomId { get; set; }
 
-        [Required]
-        public Guid OwnerId { get; set; }
-
-        [Required]
+        [Display(Name = "Room Name")]
         public string RoomName { get; set; }
 
-        [Required]
         public string Description { get; set; }
 
-        [Required]
         public string Amenities { get; set; }
 
-        //[Required]
+        //[Display(Name = "Room Size")]
         //public RoomType TypeOfRoom { get; set; }
 
-        [Required]
+        [Display(Name = "Price Per Hour")]
+        [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0.")]
         public double PricePerHour { get; set; }
 
-        [Required]
+        [Display(Name = "Base Price Per Day")]
+        [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0.")]
         public double BasePricePerDay { get; set; }
-
-        // public virtual ICollection<OccasionItemList> Occasions = new ICollection<OccasionItemList>();
     }
 }
