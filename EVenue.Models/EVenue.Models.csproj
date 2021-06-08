@@ -59,7 +59,6 @@
     <Compile Include="RoomModels\RoomDetail.cs" />
     <Compile Include="RoomModels\RoomEdit.cs" />
     <Compile Include="RoomModels\RoomListItem.cs" />
-    <Compile Include="RoomModels\RoomType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

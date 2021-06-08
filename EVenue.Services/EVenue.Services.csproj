@@ -61,5 +61,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EVenue.Data\EVenue.Data.csproj">
+      <Project>{A54696F0-431D-4E70-8B22-67102FA7C08E}</Project>
+      <Name>EVenue.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EVenue.Models\EVenue.Models.csproj">
+      <Project>{C0581698-802F-4E8B-AC5F-536005FB8165}</Project>
+      <Name>EVenue.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

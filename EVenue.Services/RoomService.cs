@@ -17,7 +17,30 @@ namespace EVenue.Services
             _ownerId = ownerId;
         }
 
-        public IEnumerable<Room> GetRooms()
+        // POST
+        public bool CreateRoom(RoomCreate model)
+        {
+            var entity = new Room()
+            {
+                OwnerId = _ownerId,
+                RoomName = model.RoomName,
+                Description = model.Description,
+                Amenities = model.Amenities,
+                //TypeOfRoom = e.(RoomType)
+                PricePerHour = model.PricePerHour,
+                BasePricePerDay = model.BasePricePerDay
+            };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Rooms.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
+        // GET
+        public IEnumerable<RoomListItem> GetRooms()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -32,7 +55,7 @@ namespace EVenue.Services
                                 RoomName = e.RoomName,
                                 Description = e.Description,
                                 Amenities = e.Amenities,
-                                TypeOfRoom = e.TypeOfRoom,
+                                //TypeOfRoom = e.(RoomType)
                                 PricePerHour = e.PricePerHour,
                                 BasePricePerDay = e.BasePricePerDay
                             });

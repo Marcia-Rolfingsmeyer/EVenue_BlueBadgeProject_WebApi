@@ -12,7 +12,7 @@ namespace EVenue.Models.RoomModels
         public string RoomName { get; set; }
         public string Description { get; set; }
         public string Amenities { get; set; }
-        public RoomType TypeOfRoom { get; set; }
+        //public RoomType TypeOfRoom { get; set; }
         public double PricePerHour { get; set; }
         public double BasePricePerDay { get; set; }
     }
