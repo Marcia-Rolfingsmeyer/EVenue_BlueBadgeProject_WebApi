@@ -34,7 +34,6 @@ namespace EVenue.Data
         [Required]
         public RoomType TypeOfRoom { get; set; }
 
-
         [Required]
         public double PricePerHour { get; set; }
 
