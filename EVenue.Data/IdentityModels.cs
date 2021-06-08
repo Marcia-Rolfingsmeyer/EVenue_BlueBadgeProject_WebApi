@@ -34,7 +34,7 @@ namespace EVenue.Data
         }
 
 
-        public DbSet<VenueProfile> VenueProfile { get; set; }
+        public DbSet<VenueProfile> VenueProfiles { get; set; }
         public DbSet<Occasion> Occasions { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Room> Rooms { get; set; }

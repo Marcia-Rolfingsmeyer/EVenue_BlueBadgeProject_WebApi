@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EVenue.Data
+namespace EVenue.Models.CustomerModels
 {
-    public class Customer
+    public class CustomerCreate
     {
-        [Key]
+        [Required]
         public int CustomerId { get; set; }
 
         [Required]
@@ -23,7 +23,7 @@ namespace EVenue.Data
 
         [Required]
         public string CustomerAddress { get; set; }
-        
+
         [Required]
         public string CustomerPhone { get; set; }
 
