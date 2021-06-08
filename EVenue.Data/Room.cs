@@ -20,7 +20,7 @@ namespace EVenue.Data
         public int RoomId { get; set; }
 
         [Required]
-        public int OwnerId { get; set; }
+        public Guid OwnerId { get; set; }
 
         [Required]
         public string RoomName { get; set; }
@@ -40,6 +40,6 @@ namespace EVenue.Data
         [Required]
         public double BasePricePerDay { get; set; }
 
-        //public virtual ICollection<OccasionItemList> Occasions = new ICollection<OccasionItemList>();
+        // public virtual ICollection<OccasionItemList> Occasions = new ICollection<OccasionItemList>();
     }
 }
