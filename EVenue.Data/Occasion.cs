@@ -27,5 +27,9 @@ namespace EVenue.Data
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
 
+        //public virtual ICollection<Rental> Rentals { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
+        public virtual ICollection<Vendor> Vendors { get; set; }
+
     }
 }
