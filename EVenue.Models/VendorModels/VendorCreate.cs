@@ -5,16 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EVenue.Data
+namespace EVenue.Models.VendorModels
 {
-    public class Vendor
+    public class VendorCreate
     {
-        [Key]
-        public int VendorId { get; set; }
-
-        [Required]
-        public Guid OwnerId { get; set; }
-
         [Required]
         [Display(Name = "Vendor's Name")]
         public string VendorName { get; set; }

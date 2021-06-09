@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EVenue.Data
+namespace EVenue.Models.VenueProfileModels
 {
-    public class VenueProfile
+    public class VenueProfileCreate
     {
-        [Key]
+        [Required]
         public int VenueProfileId { get; set; }
 
         [Required]
