@@ -28,7 +28,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
 
         public IHttpActionResult Get()
         {
-            VendorService service = CreateVendorService();
+            var service = CreateVendorService();
             var v = service.GetVendors();
             return Ok(v);
         }
