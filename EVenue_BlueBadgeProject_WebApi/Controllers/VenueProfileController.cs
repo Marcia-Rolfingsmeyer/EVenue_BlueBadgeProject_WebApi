@@ -1,25 +1,49 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using EVenue.Services;
+using EVenue.Models.VenueProfileModels;
 
 namespace EVenue_BlueBadgeProject_WebApi.Controllers
 {
+    [Authorize]
     public class VenueProfileController : ApiController
     {
-        [Authorize]
-        // GET api/<controller>
+        private VenueProfileService CreateVenueProfileService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var venueProfileService = new VenueProfileService(userId);
+            return venueProfileService;
+        }
+
+        public IHttpActionResult Post(VenueProfileCreate venueProfile)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateVenueProfileService();
+
+            if (!service.CreateVenueProfile(venueProfile))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+
+        /* GET api/<controller>
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+        return new string[] { "value1", "value2" };
         }
 
         // GET api/<controller>/5
         public string Get(int id)
         {
-            return "value";
+        return "value";
         }
 
         // POST api/<controller>
@@ -35,6 +59,6 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
         // DELETE api/<controller>/5
         public void Delete(int id)
         {
-        }
+        }*/
     }
 }
