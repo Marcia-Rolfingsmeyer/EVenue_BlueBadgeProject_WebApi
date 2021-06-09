@@ -36,5 +36,13 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             var occasions = service.GetAllOccasions();
             return Ok(occasions);
         }
+
+        //GET OccasionById
+        public IHttpActionResult GetOccasionById(int id)
+        {
+            var service = CreateOccasionService();
+            var occasion = service.GetOccasionById(id);
+            return Ok(occasion);
+        }
     }
 }

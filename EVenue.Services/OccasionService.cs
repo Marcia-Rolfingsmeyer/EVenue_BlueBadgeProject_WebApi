@@ -44,7 +44,8 @@ namespace EVenue.Services
         //GetAllOccasions
         public IEnumerable<OccasionListItem> GetAllOccasions()
         {
-            using (var ctx = new ApplicationDbContext()) {
+            using (var ctx = new ApplicationDbContext())
+            {
                 var query = ctx
                             .Occasions
                             .Where(e => e.OwnerId == _userId)
@@ -56,6 +57,24 @@ namespace EVenue.Services
                             });
                 return query.ToArray();
 
+            }
+        }
+
+        //GetOccasionById
+        public OccasionDetail GetOccasionById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Occasions.Single(e => e.OwnerId == _userId && e.OccasionId == id);
+                return new OccasionDetail
+                {
+                    OccasionId = entity.OccasionId,
+                    OccasionName = entity.OccasionName,
+                    StartTime = entity.StartTime,
+                    EndTime = entity.EndTime,
+                    VenueProfileId = entity.VenueProfileId,
+                    CustomerId = entity.CustomerId
+                };
             }
         }
     }
