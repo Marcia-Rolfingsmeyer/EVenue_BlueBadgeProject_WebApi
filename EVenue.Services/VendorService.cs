@@ -54,5 +54,23 @@ namespace EVenue.Services
                 return query.ToArray();
             }
         }
+
+        //UPDATE
+        public bool UpdateVendor(VendorEdit updateVendor)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Vendors
+                            .Single(e => e.VendorId == updateVendor.VendorId && e.OwnerId == _ownerId);
+
+                entity.VendorId = updateVendor.VendorId;
+                entity.VendorName = updateVendor.VendorName;
+                entity.VendorFee = updateVendor.VendorFee;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
