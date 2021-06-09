@@ -1,4 +1,4 @@
-﻿using EVenue.Models.RoomModels;
+﻿using EVenue.Models.VendorModels;
 using EVenue.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -11,35 +11,33 @@ using System.Web.Http;
 namespace EVenue_BlueBadgeProject_WebApi.Controllers
 {
     [Authorize]
-    public class RoomController : ApiController
+    public class VendorController : ApiController
     {
-
-        public IHttpActionResult Post(RoomCreate room)
+        public IHttpActionResult Post(VendorCreate vendor)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreateRoomService();
+            var service = CreateVendorService();
 
-            if (!service.CreateRoom(room))
+            if (!service.CreateVendor(vendor))
                 return InternalServerError();
 
-            return Ok(room);
+            return Ok(vendor);
         }
 
         public IHttpActionResult Get()
         {
-            var service = CreateRoomService();
-            var r = service.GetRooms();
-            return Ok(r);
+            VendorService service = CreateVendorService();
+            var v = service.GetVendors();
+            return Ok(v);
         }
 
-        private RoomService CreateRoomService()
+        private VendorService CreateVendorService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var roomService = new RoomService(userId);
-            return roomService;
+            var vendorService = new VendorService(userId);
+            return vendorService;
         }
-
     }
 }
