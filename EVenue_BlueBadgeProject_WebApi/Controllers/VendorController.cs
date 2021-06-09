@@ -35,6 +35,19 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(v);
         }
 
+        [HttpGet]
+        [Route("api/Vendor/{id}")]
+        public IHttpActionResult GetById(int id)
+        {
+            var service = CreateVendorService();
+            var vendor = service.GetById(id);
+
+            if (vendor == null)
+                return NotFound();
+
+            return Ok(vendor);
+        }
+
         [HttpPut]
         public IHttpActionResult Update(VendorEdit model)
         {
