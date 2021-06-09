@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EVenue.Models.OccasionModels
 {
-    class OccasionListItem
+    public class OccasionListItem
     {
+        public int OccasionId { get; set; }
+        public string OccasionName { get; set; }
+        public DateTime StartTime { get; set; }
+
     }
 }
