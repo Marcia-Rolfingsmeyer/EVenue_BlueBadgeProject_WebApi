@@ -45,4 +45,5 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
 
             return Ok(customer);
         }
+    }
 }
