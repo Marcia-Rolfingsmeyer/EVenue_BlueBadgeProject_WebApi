@@ -63,5 +63,27 @@ namespace EVenue.Services
                 return query.ToArray();
             }
         }
+
+        //UPDATE
+        public bool UpdateRoom(RoomEdit updateRoom)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Rooms
+                            .Single(e => e.RoomId == updateRoom.RoomId && e.OwnerId == _ownerId);
+
+                entity.RoomId = updateRoom.RoomId;
+                entity.RoomName = updateRoom.RoomName;
+                entity.Description = updateRoom.Description;
+                entity.Amenities = updateRoom.Amenities;
+                entity.PricePerHour = updateRoom.PricePerHour;
+                entity.BasePricePerDay = updateRoom.BasePricePerDay;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }
