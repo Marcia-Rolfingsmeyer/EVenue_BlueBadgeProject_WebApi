@@ -28,5 +28,13 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             if (!service.CreateOccasion(model)) return InternalServerError();
             return Ok("Occasion was successfully created!");
         }
+
+        //GET AllOccasions
+        public IHttpActionResult GetAllOccasions()
+        {
+            var service = CreateOccasionService();
+            var occasions = service.GetAllOccasions();
+            return Ok(occasions);
+        }
     }
 }

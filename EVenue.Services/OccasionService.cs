@@ -39,5 +39,24 @@ namespace EVenue.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //READ/GET
+        //GetAllOccasions
+        public IEnumerable<OccasionListItem> GetAllOccasions()
+        {
+            using (var ctx = new ApplicationDbContext()) {
+                var query = ctx
+                            .Occasions
+                            .Where(e => e.OwnerId == _userId)
+                            .Select(e => new OccasionListItem
+                            {
+                                OccasionId = e.OccasionId,
+                                OccasionName = e.OccasionName,
+                                StartTime = e.StartTime
+                            });
+                return query.ToArray();
+
+            }
+        }
     }
 }
