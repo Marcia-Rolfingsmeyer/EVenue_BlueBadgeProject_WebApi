@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EVenue.Services
 {
-    class VenueProfileService
+    public class VenueProfileService
     {
         private readonly Guid _ownerId;
 

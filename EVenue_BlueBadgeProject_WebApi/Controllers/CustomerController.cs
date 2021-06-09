@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EVenue.Services;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,10 +9,17 @@ using System.Web.Http;
 
 namespace EVenue_BlueBadgeProject_WebApi.Controllers
 {
+    [Authorize]
     public class CustomerController : ApiController
     {
-        [Authorize]
-        // GET api/<controller>
+        private CustomerService CreateCustomerService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var customerService = new CustomerService(userId);
+            return customerService;
+        }
+
+        /* GET api/<controller>
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -35,6 +44,6 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
         // DELETE api/<controller>/5
         public void Delete(int id)
         {
-        }
+        }*/
     }
 }

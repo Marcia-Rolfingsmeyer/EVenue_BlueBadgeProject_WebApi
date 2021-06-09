@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EVenue.Services
 {
-    class CustomerService
+    public class CustomerService
     {
         private readonly Guid _ownerId;
 
