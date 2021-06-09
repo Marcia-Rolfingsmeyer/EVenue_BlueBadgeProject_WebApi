@@ -90,6 +90,10 @@
     <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.Designer.cs">
       <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106091738044_AddVirtualListsToOccasion.cs" />
+    <Compile Include="Migrations\202106091738044_AddVirtualListsToOccasion.Designer.cs">
+      <DependentUpon>202106091738044_AddVirtualListsToOccasion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +108,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.resx">
       <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106091738044_AddVirtualListsToOccasion.resx">
+      <DependentUpon>202106091738044_AddVirtualListsToOccasion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
