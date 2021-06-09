@@ -49,6 +49,16 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok();
         }
 
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateVendorService();
+
+            if (!service.DeleteVendor(id))
+                return InternalServerError();
+
+            return Ok();
+        }
 
         private VendorService CreateVendorService()
         {
