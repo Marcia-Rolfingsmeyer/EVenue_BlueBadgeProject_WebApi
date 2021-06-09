@@ -12,7 +12,7 @@ namespace EVenue.Services
     {
         private readonly Guid _ownerId;
 
-        public VendorService (Guid ownerId)
+        public VendorService(Guid ownerId)
         {
             _ownerId = ownerId;
         }
@@ -37,7 +37,7 @@ namespace EVenue.Services
         //GET
         public IEnumerable<VendorListItem> GetVendors()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -52,6 +52,26 @@ namespace EVenue.Services
                             });
 
                 return query.ToArray();
+            }
+        }
+
+        // GET By Id
+        public VendorDetail GetById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Vendors
+                            .Single(e => e.VendorId == id && e.OwnerId == _ownerId);
+
+                return
+                    new VendorDetail
+                    {
+                        VendorId = entity.VendorId,
+                        VendorName = entity.VendorName,
+                        VendorFee = entity.VendorFee
+                    };
             }
         }
 
@@ -74,9 +94,9 @@ namespace EVenue.Services
         }
 
         //DELETE
-        public bool DeleteVendor (int id)
+        public bool DeleteVendor(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                         ctx
@@ -85,7 +105,7 @@ namespace EVenue.Services
 
                 ctx.Vendors.Remove(entity);
 
-                return ctx.SaveChanges() == 1; 
+                return ctx.SaveChanges() == 1;
             }
         }
     }

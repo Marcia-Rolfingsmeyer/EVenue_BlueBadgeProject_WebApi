@@ -8,6 +8,8 @@ namespace EVenue.Models.VendorModels
 {
     public class VendorDetail
     {
+        public int VendorId { get; set; }
+
         public string VendorName { get; set; }
 
         //public VendorType TypeOfVendor { get; set; }
