@@ -39,5 +39,43 @@ namespace EVenue.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //READ/GET
+        //GetAllOccasions
+        public IEnumerable<OccasionListItem> GetAllOccasions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                            .Occasions
+                            .Where(e => e.OwnerId == _userId)
+                            .Select(e => new OccasionListItem
+                            {
+                                OccasionId = e.OccasionId,
+                                OccasionName = e.OccasionName,
+                                StartTime = e.StartTime
+                            });
+                return query.ToArray();
+
+            }
+        }
+
+        //GetOccasionById
+        public OccasionDetail GetOccasionById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Occasions.Single(e => e.OwnerId == _userId && e.OccasionId == id);
+                return new OccasionDetail
+                {
+                    OccasionId = entity.OccasionId,
+                    OccasionName = entity.OccasionName,
+                    StartTime = entity.StartTime,
+                    EndTime = entity.EndTime,
+                    VenueProfileId = entity.VenueProfileId,
+                    CustomerId = entity.CustomerId
+                };
+            }
+        }
     }
 }

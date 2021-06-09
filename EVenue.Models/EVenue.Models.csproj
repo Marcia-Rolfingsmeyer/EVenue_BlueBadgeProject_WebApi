@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerModels\CustomerCreate.cs" />
+    <Compile Include="OccasionModels\OccasionDetail.cs" />
+    <Compile Include="OccasionModels\OccasionListItem.cs" />
     <Compile Include="CustomerModels\CustomerDetail.cs" />
     <Compile Include="CustomerModels\CustomerEdit.cs" />
     <Compile Include="CustomerModels\CustomerListItem.cs" />
