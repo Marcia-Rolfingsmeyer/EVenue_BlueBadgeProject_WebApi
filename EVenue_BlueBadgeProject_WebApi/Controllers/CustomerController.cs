@@ -1,4 +1,5 @@
-﻿using EVenue.Services;
+﻿using EVenue.Models.CustomerModels;
+using EVenue.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -19,31 +20,29 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return customerService;
         }
 
-        /* GET api/<controller>
-        public IEnumerable<string> Get()
+        public IHttpActionResult Post(CustomerCreate customer)
         {
-            return new string[] { "value1", "value2" };
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateCustomerService();
+
+            if (!service.CreateCustomer(customer))
+                return InternalServerError();
+
+            return Ok(customer);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        public IHttpActionResult Put(CustomerEdit customer)
         {
-            return "value";
-        }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        // POST api/<controller>
-        public void Post([FromBody] string value)
-        {
-        }
+            var service = CreateCustomerService();
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            if (!service.UpdateCustomer(customer))
+                return InternalServerError();
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }*/
-    }
+            return Ok(customer);
+        }
 }

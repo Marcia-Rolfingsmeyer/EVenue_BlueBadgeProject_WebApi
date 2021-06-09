@@ -12,7 +12,7 @@ namespace EVenue.Services
     {
         private readonly Guid _ownerId;
 
-        public VendorService (Guid ownerId)
+        public VendorService(Guid ownerId)
         {
             _ownerId = ownerId;
         }
@@ -37,7 +37,7 @@ namespace EVenue.Services
         //GET
         public IEnumerable<VendorListItem> GetVendors()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -52,6 +52,60 @@ namespace EVenue.Services
                             });
 
                 return query.ToArray();
+            }
+        }
+
+        // GET By Id
+        public VendorDetail GetById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Vendors
+                            .Single(e => e.VendorId == id && e.OwnerId == _ownerId);
+
+                return
+                    new VendorDetail
+                    {
+                        VendorId = entity.VendorId,
+                        VendorName = entity.VendorName,
+                        VendorFee = entity.VendorFee
+                    };
+            }
+        }
+
+        //UPDATE
+        public bool UpdateVendor(VendorEdit updateVendor)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Vendors
+                            .Single(e => e.VendorId == updateVendor.VendorId && e.OwnerId == _ownerId);
+
+                entity.VendorId = updateVendor.VendorId;
+                entity.VendorName = updateVendor.VendorName;
+                entity.VendorFee = updateVendor.VendorFee;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //DELETE
+        public bool DeleteVendor(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Vendors
+                            .Single(e => e.VendorId == id && e.OwnerId == _ownerId);
+
+                ctx.Vendors.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

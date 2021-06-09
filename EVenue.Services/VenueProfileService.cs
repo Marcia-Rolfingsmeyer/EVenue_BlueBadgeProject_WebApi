@@ -27,13 +27,56 @@ namespace EVenue.Services
                 VenueContactPerson = model.VenueContactPerson,
                 VenuePhone = model.VenuePhone,
                 VenueAddress = model.VenueAddress,
-                VenueEmail = model.VenueEmail
+                VenueEmail = model.VenueEmail,
+                CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.VenueProfiles.Add(entity);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<VenueProfileListItem> GetVenueProfile()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .VenueProfiles
+                    .Where(e => e.OwnerId != null)
+                    .Select(
+                        e =>
+                        new VenueProfileListItem
+                        {
+                            VenueProfileId = e.VenueProfileId,
+                            VenueName = e.VenueName,
+                            VenueContactPerson = e.VenueContactPerson,
+                            VenueAddress = e.VenueAddress,
+                            VenueEmail = e.VenueEmail,
+                            VenuePhone = e.VenuePhone,
+                            CreatedUtc = e.CreatedUtc
+                        });
+                return query.ToArray();
+            }
+        }
+
+        public bool UpdateVenueProfile(VenueProfileEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .VenueProfiles
+                    .Single(e => e.VenueProfileId == model.VenueProfileId);
+
+                entity.VenueName = model.VenueName;
+                entity.VenueContactPerson = model.VenueContactPerson;
+                entity.VenuePhone = model.VenuePhone;
+                entity.VenueAddress = model.VenueAddress;
+                entity.VenueEmail = model.VenueEmail;
+                return ctx.SaveChanges() == 1; 
             }
         }
 

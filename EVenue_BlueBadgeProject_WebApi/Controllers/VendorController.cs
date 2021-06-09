@@ -13,6 +13,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
     [Authorize]
     public class VendorController : ApiController
     {
+        [HttpPost]
         public IHttpActionResult Post(VendorCreate vendor)
         {
             if (!ModelState.IsValid)
@@ -26,11 +27,50 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(vendor);
         }
 
-        public IHttpActionResult Get()
+        [HttpGet]
+        public IHttpActionResult GetAll()
         {
             var service = CreateVendorService();
             var v = service.GetVendors();
             return Ok(v);
+        }
+
+        [HttpGet]
+        [Route("api/Vendor/{id}")]
+        public IHttpActionResult GetById(int id)
+        {
+            var service = CreateVendorService();
+            var vendor = service.GetById(id);
+
+            if (vendor == null)
+                return NotFound();
+
+            return Ok(vendor);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update(VendorEdit model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateVendorService();
+
+            if (!service.UpdateVendor(model))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateVendorService();
+
+            if (!service.DeleteVendor(id))
+                return InternalServerError();
+
+            return Ok();
         }
 
         private VendorService CreateVendorService()

@@ -30,35 +30,27 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             if (!service.CreateVenueProfile(venueProfile))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(venueProfile);
         }
 
-
-        /* GET api/<controller>
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-        return new string[] { "value1", "value2" };
+            VenueProfileService venueProfileService = CreateVenueProfileService();
+            var venueProfile = venueProfileService.GetVenueProfile();
+            return Ok(venueProfile);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        public IHttpActionResult Put(VenueProfileEdit venueProfile)
         {
-        return "value";
-        }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        // POST api/<controller>
-        public void Post([FromBody] string value)
-        {
-        }
+            var service = CreateVenueProfileService();
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            if (!service.UpdateVenueProfile(venueProfile))
+                return InternalServerError();
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }*/
+            return Ok(venueProfile);
+        }
     }
 }
