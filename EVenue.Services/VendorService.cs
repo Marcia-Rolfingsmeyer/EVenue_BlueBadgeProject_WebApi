@@ -72,5 +72,21 @@ namespace EVenue.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //DELETE
+        public bool DeleteVendor (int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Vendors
+                            .Single(e => e.VendorId == id && e.OwnerId == _ownerId);
+
+                ctx.Vendors.Remove(entity);
+
+                return ctx.SaveChanges() == 1; 
+            }
+        }
     }
 }

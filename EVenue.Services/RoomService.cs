@@ -85,5 +85,20 @@ namespace EVenue.Services
             }
         }
 
+        //DELETE
+        public bool DeleteRoom (int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Rooms
+                        .Single(e => e.RoomId == id && e.OwnerId == _ownerId);
+
+                ctx.Rooms.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

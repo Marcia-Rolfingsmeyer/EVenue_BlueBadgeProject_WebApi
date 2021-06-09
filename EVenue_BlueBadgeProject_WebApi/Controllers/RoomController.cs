@@ -49,7 +49,16 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok();
         }
 
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateRoomService();
 
+            if (!service.DeleteRoom(id))
+                return InternalServerError();
+
+            return Ok();
+        }
 
         private RoomService CreateRoomService()
         {
