@@ -5,17 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EVenue.Data
+namespace EVenue.Models.VenueProfileModels
 {
-    public class VenueProfile
+    public class VenueProlfieDetail
     {
-        [Key]
+        [Required]
         public int VenueProfileId { get; set; }
 
-        [Required]
-        public Guid OwnerId { get; set; }
-
-        [Required]
         public string VenueName { get; set; }
 
         public string VenueContactPerson { get; set; }
@@ -27,7 +23,5 @@ namespace EVenue.Data
         public string VenueAddress { get; set; }
 
         public string VenueEmail { get; set; }
-
-       public DateTimeOffset CreatedUtc { get; set; }
     }
 }
