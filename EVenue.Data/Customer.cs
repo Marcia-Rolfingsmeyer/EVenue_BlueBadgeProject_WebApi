@@ -28,5 +28,9 @@ namespace EVenue.Data
         public string CustomerPhone { get; set; }
 
         public string CustomerEmail { get; set; }
+
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
