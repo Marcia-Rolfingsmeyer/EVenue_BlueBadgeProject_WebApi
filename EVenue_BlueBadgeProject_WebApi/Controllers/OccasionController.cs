@@ -53,5 +53,13 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             if (!service.UpdateOccasion(id, model)) return InternalServerError();
             return Ok("Occasion was successfully updated!");
         }
+
+        //DELETE Occasion
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateOccasionService();
+            if (!service.DeleteOccasion(id)) return InternalServerError();
+            return Ok("Occasion was successfully deleted!");
+        }
     }
 }

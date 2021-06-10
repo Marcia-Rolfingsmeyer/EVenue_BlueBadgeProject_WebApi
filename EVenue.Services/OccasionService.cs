@@ -95,5 +95,16 @@ namespace EVenue.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //DeleteOccasion
+        public bool DeleteOccasion(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Occasions.Single(e => e.OwnerId == _userId && e.OccasionId == id);
+                ctx.Occasions.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
