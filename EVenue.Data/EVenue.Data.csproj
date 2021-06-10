@@ -86,17 +86,9 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs" />
-    <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.Designer.cs">
-      <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106091940425_GetUpdateClasses.cs" />
-    <Compile Include="Migrations\202106091940425_GetUpdateClasses.Designer.cs">
-      <DependentUpon>202106091940425_GetUpdateClasses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.cs" />
-    <Compile Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.Designer.cs">
-      <DependentUpon>202106101439198_OccasionOnetoManyRoomVenue.cs</DependentUpon>
+    <Compile Include="Migrations\202106101555437_OccasionDbUpdate.cs" />
+    <Compile Include="Migrations\202106101555437_OccasionDbUpdate.Designer.cs">
+      <DependentUpon>202106101555437_OccasionDbUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
@@ -110,14 +102,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.resx">
-      <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106091940425_GetUpdateClasses.resx">
-      <DependentUpon>202106091940425_GetUpdateClasses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.resx">
-      <DependentUpon>202106101439198_OccasionOnetoManyRoomVenue.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106101555437_OccasionDbUpdate.resx">
+      <DependentUpon>202106101555437_OccasionDbUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
