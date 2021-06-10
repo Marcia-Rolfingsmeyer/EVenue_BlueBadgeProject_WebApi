@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202106091940425_GetUpdateClasses.Designer.cs">
       <DependentUpon>202106091940425_GetUpdateClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.cs" />
+    <Compile Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.Designer.cs">
+      <DependentUpon>202106101439198_OccasionOnetoManyRoomVenue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106091940425_GetUpdateClasses.resx">
       <DependentUpon>202106091940425_GetUpdateClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.resx">
+      <DependentUpon>202106101439198_OccasionOnetoManyRoomVenue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
