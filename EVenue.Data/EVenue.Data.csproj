@@ -90,13 +90,9 @@
     <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.Designer.cs">
       <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106091940425_GetUpdateClasses.cs" />
-    <Compile Include="Migrations\202106091940425_GetUpdateClasses.Designer.cs">
-      <DependentUpon>202106091940425_GetUpdateClasses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.cs" />
-    <Compile Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.Designer.cs">
-      <DependentUpon>202106101439198_OccasionOnetoManyRoomVenue.cs</DependentUpon>
+    <Compile Include="Migrations\202106101536334_OccasionOneToMany.cs" />
+    <Compile Include="Migrations\202106101536334_OccasionOneToMany.Designer.cs">
+      <DependentUpon>202106101536334_OccasionOneToMany.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
@@ -113,11 +109,8 @@
     <EmbeddedResource Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.resx">
       <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106091940425_GetUpdateClasses.resx">
-      <DependentUpon>202106091940425_GetUpdateClasses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106101439198_OccasionOnetoManyRoomVenue.resx">
-      <DependentUpon>202106101439198_OccasionOnetoManyRoomVenue.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106101536334_OccasionOneToMany.resx">
+      <DependentUpon>202106101536334_OccasionOneToMany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
