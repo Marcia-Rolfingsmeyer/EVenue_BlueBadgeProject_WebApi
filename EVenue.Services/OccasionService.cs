@@ -77,5 +77,23 @@ namespace EVenue.Services
                 };
             }
         }
+
+        //UpdateOccasion
+        public bool UpdateOccasion(int id, OccasionEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Occasions.Single(e => e.OwnerId == _userId && e.OccasionId == id);
+                entity.OccasionName = model.OccasionName;
+                entity.StartTime = model.StartTime;
+                entity.EndTime = model.EndTime;
+                entity.VenueProfileId = model.VenueProfileId;
+                entity.CustomerId = model.CustomerId;
+                entity.RoomId = model.RoomId;
+                entity.VendorId = model.VendorId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
