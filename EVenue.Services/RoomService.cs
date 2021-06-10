@@ -36,7 +36,6 @@ namespace EVenue.Services
                 ctx.Rooms.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-
         }
 
         // GET
@@ -72,7 +71,8 @@ namespace EVenue.Services
                 var entity =
                         ctx
                             .Rooms
-                            .Single(e => e.RoomId == id && e.OwnerId == _ownerId);
+                            .SingleOrDefault(e => e.RoomId == id && e.OwnerId == _ownerId);
+
                 return
                     new RoomDetail
                     {
@@ -94,9 +94,8 @@ namespace EVenue.Services
                 var entity =
                         ctx
                             .Rooms
-                            .Single(e => e.RoomId == updateRoom.RoomId && e.OwnerId == _ownerId);
+                            .SingleOrDefault(e => e.RoomId == updateRoom.RoomId && e.OwnerId == _ownerId);
 
-                entity.RoomId = updateRoom.RoomId;
                 entity.RoomName = updateRoom.RoomName;
                 entity.Description = updateRoom.Description;
                 entity.Amenities = updateRoom.Amenities;
@@ -115,7 +114,7 @@ namespace EVenue.Services
                 var entity =
                     ctx
                         .Rooms
-                        .Single(e => e.RoomId == id && e.OwnerId == _ownerId);
+                        .SingleOrDefault(e => e.RoomId == id && e.OwnerId == _ownerId);
 
                 ctx.Rooms.Remove(entity);
 
