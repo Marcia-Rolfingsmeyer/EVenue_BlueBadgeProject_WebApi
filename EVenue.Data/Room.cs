@@ -40,6 +40,6 @@ namespace EVenue.Data
         [Required]
         public double BasePricePerDay { get; set; }
 
-        // public virtual ICollection<OccasionItemList> Occasions = new ICollection<OccasionItemList>();
+        public virtual List<Occasion> Occasions { get; set; } = new List<Occasion>();
     }
 }
