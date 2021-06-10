@@ -7,13 +7,13 @@ namespace EVenue.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class OccasionDbUpdate : IMigrationMetadata
+    public sealed partial class InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OccasionDbUpdate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106101555437_OccasionDbUpdate"; }
+            get { return "202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion"; }
         }
         
         string IMigrationMetadata.Source
