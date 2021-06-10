@@ -11,6 +11,7 @@ using System.Web.Http;
 namespace EVenue_BlueBadgeProject_WebApi.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/Vendor")]
     public class VendorController : ApiController
     {
         [HttpPost]
@@ -49,7 +50,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Update(VendorEdit model)
+        public IHttpActionResult Put(VendorEdit model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
