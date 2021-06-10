@@ -23,12 +23,12 @@ namespace EVenue.Services
             {
                 OwnerId = _ownerId,
                 CustomerId = model.CustomerId,
-                CreatedUtc = model.CreatedUtc,
                 CustomerFirstName = model.CustomerFirstName,
                 CustomerLastName = model.CustomerLastName,
                 CustomerAddress = model.CustomerAddress,
                 CustomerPhone = model.CustomerPhone,
-                CustomerEmail = model.CustomerEmail
+                CustomerEmail = model.CustomerEmail,
+                CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())

@@ -29,8 +29,10 @@ namespace EVenue.Data
 
         public string CustomerEmail { get; set; }
 
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

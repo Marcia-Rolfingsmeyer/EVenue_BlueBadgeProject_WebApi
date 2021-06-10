@@ -11,8 +11,6 @@ namespace EVenue.Models.CustomerModels
     {
         public int CustomerId { get; set; }
 
-        public Guid OwnerId { get; set; }
-
         [Required]
         public string CustomerFirstName { get; set; }
 
@@ -26,8 +24,5 @@ namespace EVenue.Models.CustomerModels
         public string CustomerPhone { get; set; }
 
         public string CustomerEmail { get; set; }
-
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
