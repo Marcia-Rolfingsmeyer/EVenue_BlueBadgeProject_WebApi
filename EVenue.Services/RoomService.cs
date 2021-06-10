@@ -36,7 +36,6 @@ namespace EVenue.Services
                 ctx.Rooms.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-
         }
 
         // GET
