@@ -7,13 +7,13 @@ namespace EVenue.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class OccasionOnetoManyRoomVenue : IMigrationMetadata
+    public sealed partial class OccasionOneToMany : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OccasionOnetoManyRoomVenue));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OccasionOneToMany));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106101439198_OccasionOnetoManyRoomVenue"; }
+            get { return "202106101536334_OccasionOneToMany"; }
         }
         
         string IMigrationMetadata.Source
