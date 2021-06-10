@@ -45,5 +45,15 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
 
             return Ok(customer);
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateCustomerService();
+
+            if (!service.DeleteCustomer(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }

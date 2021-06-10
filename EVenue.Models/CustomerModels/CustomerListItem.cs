@@ -21,10 +21,10 @@ namespace EVenue.Models.CustomerModels
 
         public string CustomerEmail { get; set; }
 
-        [Display(Name = "Created")]
+        //[Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        [Display(Name = "Modified")]
+        //[Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

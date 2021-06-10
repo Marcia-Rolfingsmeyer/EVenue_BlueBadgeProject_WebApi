@@ -38,7 +38,7 @@ namespace EVenue.Services
             }
         }
 
-        public IEnumerable<CustomerListItem> GetCustmore()
+        public IEnumerable<CustomerListItem> GetCustomer()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -56,8 +56,8 @@ namespace EVenue.Services
                             CustomerAddress = e.CustomerAddress,
                             CustomerEmail = e.CustomerEmail,
                             CustomerPhone = e.CustomerPhone,
-                            CreatedUtc = DateTimeOffset.Now,
-                            ModifiedUtc = DateTimeOffset.Now,
+                            CreatedUtc = e.CreatedUtc,
+                            ModifiedUtc = e.ModifiedUtc
                         });
                 return query.ToArray();
             }
@@ -70,14 +70,30 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerId == model.CustomerId);
+                    .Single(e => e.CustomerId == model.CustomerId && e.OwnerId == _ownerId);
 
                 entity.CustomerFirstName = model.CustomerFirstName;
                 entity.CustomerLastName = model.CustomerLastName;
                 entity.CustomerAddress = model.CustomerAddress;
                 entity.CustomerPhone = model.CustomerPhone;
+                entity.CustomerId = model.CustomerId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1; 
+            }
+        }
+
+        public bool DeleteCustomer (int customerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Customers
+                    .Single(e => e.CustomerId == customerId && e.OwnerId == _ownerId);
+                
+                ctx.Customers.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

@@ -28,6 +28,10 @@ namespace EVenue.Data
 
         public string VenueEmail { get; set; }
 
-       public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

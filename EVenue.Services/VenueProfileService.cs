@@ -45,7 +45,7 @@ namespace EVenue.Services
                 var query =
                     ctx
                     .VenueProfiles
-                    .Where(e => e.OwnerId != null)
+                    .Where(e => e.OwnerId == _ownerId)
                     .Select(
                         e =>
                         new VenueProfileListItem
@@ -56,7 +56,8 @@ namespace EVenue.Services
                             VenueAddress = e.VenueAddress,
                             VenueEmail = e.VenueEmail,
                             VenuePhone = e.VenuePhone,
-                            CreatedUtc = e.CreatedUtc
+                            CreatedUtc = e.CreatedUtc,
+                            ModifiedUtc = e.ModifiedUtc
                         });
                 return query.ToArray();
             }
@@ -69,14 +70,31 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .VenueProfiles
-                    .Single(e => e.VenueProfileId == model.VenueProfileId);
+                    .Single(e => e.VenueProfileId == model.VenueProfileId && e.OwnerId == _ownerId);
 
                 entity.VenueName = model.VenueName;
                 entity.VenueContactPerson = model.VenueContactPerson;
                 entity.VenuePhone = model.VenuePhone;
                 entity.VenueAddress = model.VenueAddress;
                 entity.VenueEmail = model.VenueEmail;
+                entity.VenueProfileId = model.VenueProfileId;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1; 
+            }
+        }
+
+        public bool DeleteVenueProfile(int venueId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .VenueProfiles
+                    .Single(e => e.VenueProfileId == venueId && e.OwnerId == _ownerId);
+
+                ctx.VenueProfiles.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
 
