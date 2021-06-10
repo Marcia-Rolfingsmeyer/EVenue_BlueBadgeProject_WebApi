@@ -17,7 +17,7 @@ namespace EVenue.Services
             _ownerId = ownerId;
         }
 
-        //POST
+        //Create Vendor
         public bool CreateVendor(VendorCreate model)
         {
             var entity = new Vendor()
@@ -34,7 +34,7 @@ namespace EVenue.Services
             }
         }
 
-        //GET
+        //Get All Vendors
         public IEnumerable<VendorListItem> GetVendors()
         {
             using (var ctx = new ApplicationDbContext())
@@ -63,7 +63,7 @@ namespace EVenue.Services
                 var entity =
                         ctx
                             .Vendors
-                            .Single(e => e.VendorId == id && e.OwnerId == _ownerId);
+                            .SingleOrDefault(e => e.VendorId == id && e.OwnerId == _ownerId);
 
                 return
                     new VendorDetail
@@ -83,9 +83,8 @@ namespace EVenue.Services
                 var entity =
                         ctx
                             .Vendors
-                            .Single(e => e.VendorId == updateVendor.VendorId && e.OwnerId == _ownerId);
+                            .SingleOrDefault(e => e.VendorId == updateVendor.VendorId && e.OwnerId == _ownerId);
 
-                entity.VendorId = updateVendor.VendorId;
                 entity.VendorName = updateVendor.VendorName;
                 entity.VendorFee = updateVendor.VendorFee;
 
@@ -101,7 +100,7 @@ namespace EVenue.Services
                 var entity =
                         ctx
                             .Vendors
-                            .Single(e => e.VendorId == id && e.OwnerId == _ownerId);
+                            .SingleOrDefault(e => e.VendorId == id && e.OwnerId == _ownerId);
 
                 ctx.Vendors.Remove(entity);
 
