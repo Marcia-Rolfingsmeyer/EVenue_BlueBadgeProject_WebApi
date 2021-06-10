@@ -11,6 +11,7 @@ using System.Web.Http;
 namespace EVenue_BlueBadgeProject_WebApi.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/Note")]
     public class RoomController : ApiController
     {
         [HttpPost]
@@ -49,7 +50,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Update(RoomEdit model)
+        public IHttpActionResult Put(RoomEdit model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -79,6 +80,5 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             var roomService = new RoomService(userId);
             return roomService;
         }
-
     }
 }
