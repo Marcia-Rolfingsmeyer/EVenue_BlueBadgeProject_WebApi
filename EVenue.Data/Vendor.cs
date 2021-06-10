@@ -24,5 +24,7 @@ namespace EVenue.Data
         [Required]
         [Display(Name = "Vendor's Fee")]
         public double VendorFee { get; set; }
+
+        public virtual List<Occasion> Occasions { get; set; } = new List<Occasion>();
     }
 }
