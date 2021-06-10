@@ -86,6 +86,9 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202106101555437_OccasionDbUpdate.cs" />
+    <Compile Include="Migrations\202106101555437_OccasionDbUpdate.Designer.cs">
+      <DependentUpon>202106101555437_OccasionDbUpdate.cs</DependentUpon>
     <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs" />
     <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.Designer.cs">
       <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
@@ -106,6 +109,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106101555437_OccasionDbUpdate.resx">
+      <DependentUpon>202106101555437_OccasionDbUpdate.cs</DependentUpon>
     <EmbeddedResource Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.resx">
       <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
     </EmbeddedResource>
