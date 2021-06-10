@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202106101536334_OccasionOneToMany.Designer.cs">
       <DependentUpon>202106101536334_OccasionOneToMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106102024506_VenueProfilePropertyModifiedAdded.cs" />
+    <Compile Include="Migrations\202106102024506_VenueProfilePropertyModifiedAdded.Designer.cs">
+      <DependentUpon>202106102024506_VenueProfilePropertyModifiedAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106101536334_OccasionOneToMany.resx">
       <DependentUpon>202106101536334_OccasionOneToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106102024506_VenueProfilePropertyModifiedAdded.resx">
+      <DependentUpon>202106102024506_VenueProfilePropertyModifiedAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
