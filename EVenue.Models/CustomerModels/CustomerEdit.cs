@@ -9,7 +9,6 @@ namespace EVenue.Models.CustomerModels
 {
     public class CustomerEdit
     {
-        [Required]
         public int CustomerId { get; set; }
 
         public string CustomerFirstName { get; set; }
@@ -22,7 +21,7 @@ namespace EVenue.Models.CustomerModels
 
         public string CustomerEmail { get; set; }
 
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        //[Display(Name = "Modified")]
+        //public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

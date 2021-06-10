@@ -10,7 +10,6 @@ namespace EVenue.Models.VenueProfileModels
     public class VenueProfileCreate
     {
         public int VenueProfileId { get; set; }
-        public Guid OwnerId { get; set; }
 
         [Required]
         public string VenueName { get; set; }
@@ -24,8 +23,5 @@ namespace EVenue.Models.VenueProfileModels
         public string VenueAddress { get; set; }
 
         public string VenueEmail { get; set; }
-
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

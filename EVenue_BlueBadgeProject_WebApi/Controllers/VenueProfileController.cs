@@ -52,5 +52,15 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
 
             return Ok(venueProfile);
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateVenueProfileService();
+
+            if (!service.DeleteVenueProfile(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }
