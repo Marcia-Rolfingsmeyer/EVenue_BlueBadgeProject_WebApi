@@ -44,5 +44,22 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             var occasion = service.GetOccasionById(id);
             return Ok(occasion);
         }
+
+        //PUT Occasion
+        public IHttpActionResult Put(int id, OccasionEdit model)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var service = CreateOccasionService();
+            if (!service.UpdateOccasion(id, model)) return InternalServerError();
+            return Ok("Occasion was successfully updated!");
+        }
+
+        //DELETE Occasion
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateOccasionService();
+            if (!service.DeleteOccasion(id)) return InternalServerError();
+            return Ok("Occasion was successfully deleted!");
+        }
     }
 }

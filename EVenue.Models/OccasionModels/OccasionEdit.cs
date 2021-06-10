@@ -1,6 +1,4 @@
-﻿using EVenue.Models.RoomModels;
-using EVenue.Models.VendorModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace EVenue.Models.OccasionModels
 {
-    public class OccasionDetail
+    public class OccasionEdit
     {
-        public int OccasionId { get; set; }
-
         public string OccasionName { get; set; }
 
         //public OccasionType TypeOfOccasion { get; set; }
