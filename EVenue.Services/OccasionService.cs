@@ -30,7 +30,9 @@ namespace EVenue.Services
                 StartTime = model.StartTime,
                 EndTime = model.EndTime,
                 VenueProfileId = model.VenueProfileId,
-                CustomerId = model.CustomerId
+                CustomerId = model.CustomerId,
+                RoomId = model.RoomId,
+                VendorId = model.VendorId
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -73,7 +75,9 @@ namespace EVenue.Services
                     StartTime = entity.StartTime,
                     EndTime = entity.EndTime,
                     VenueProfileId = entity.VenueProfileId,
-                    CustomerId = entity.CustomerId
+                    CustomerId = entity.CustomerId,
+                    RoomId = entity.RoomId,
+                    VendorId = entity.VendorId
                 };
             }
         }
