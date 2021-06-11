@@ -36,7 +36,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
         public IHttpActionResult Get()
         {
             VenueProfileService venueProfileService = CreateVenueProfileService();
-            var venueProfile = venueProfileService.GetVenueProfile();
+            var venueProfile = venueProfileService.GetVenueProfiles();
             return Ok(venueProfile);
         }
 

@@ -38,7 +38,7 @@ namespace EVenue.Services
             }
         }
 
-        public IEnumerable<CustomerListItem> GetCustomer()
+        public IEnumerable<CustomerListItem> GetCustomers()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -60,6 +60,29 @@ namespace EVenue.Services
                             ModifiedUtc = e.ModifiedUtc
                         });
                 return query.ToArray();
+            }
+        }
+
+        public CustomerDetail GetCustomerByName(string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Customers
+                    .Single(e => e.CustomerFirstName == name && e.OwnerId == _ownerId);
+                return
+                    new CustomerDetail
+                    {
+                        CustomerId = entity.CustomerId,
+                        CustomerFirstName = entity.CustomerFirstName,
+                        CustomerLastName = entity.CustomerLastName,
+                        CustomerAddress = entity.CustomerAddress,
+                        CustomerEmail = entity.CustomerEmail,
+                        CustomerPhone = entity.CustomerPhone,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
             }
         }
 

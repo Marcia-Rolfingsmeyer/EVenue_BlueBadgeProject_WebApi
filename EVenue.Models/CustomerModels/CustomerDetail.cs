@@ -24,5 +24,8 @@ namespace EVenue.Models.CustomerModels
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
