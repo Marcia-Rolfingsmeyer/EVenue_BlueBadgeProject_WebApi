@@ -81,6 +81,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EnumProperties\EnumProperties.csproj">
+      <Project>{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}</Project>
+      <Name>EnumProperties</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

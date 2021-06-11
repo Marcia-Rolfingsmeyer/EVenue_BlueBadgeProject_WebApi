@@ -4,16 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnumProperties.RoomTypeEnum;
 
 namespace EVenue.Data
 {
-    //public enum RoomType
-    //{
-    //    SmallHall = 1,
-    //    MediumHall = 2,
-    //    LargeHall = 3
-    //}
-
     public class Room
     {
         [Key]
@@ -31,9 +25,9 @@ namespace EVenue.Data
         [Required]
         public string Amenities { get; set; }
 
-        //[Required]
-        //public RoomType TypeOfRoom { get; set; }
-
+        [Required]
+        public RoomType TypeOfRoom { get; set; }
+    
         [Required]
         public double PricePerHour { get; set; }
 

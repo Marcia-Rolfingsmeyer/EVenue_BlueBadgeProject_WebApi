@@ -67,6 +67,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EnumProperties\EnumProperties.csproj">
+      <Project>{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}</Project>
+      <Name>EnumProperties</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EVenue.Data\EVenue.Data.csproj">
       <Project>{A54696F0-431D-4E70-8B22-67102FA7C08E}</Project>
       <Name>EVenue.Data</Name>
