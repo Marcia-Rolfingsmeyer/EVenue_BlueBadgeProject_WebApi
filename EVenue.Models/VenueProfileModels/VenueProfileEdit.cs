@@ -9,19 +9,19 @@ namespace EVenue.Models.VenueProfileModels
 {
     public class VenueProfileEdit
     {
-        [Required]
         public int VenueProfileId { get; set; }
-
+        
+        [Required]
         public string VenueName { get; set; }
 
         public string VenueContactPerson { get; set; }
 
-        [Required]
         public string VenuePhone { get; set; }
 
-        [Required]
         public string VenueAddress { get; set; }
 
         public string VenueEmail { get; set; }
+
+        //make nullable values - and if statment to go give null option and skip
     }
 }

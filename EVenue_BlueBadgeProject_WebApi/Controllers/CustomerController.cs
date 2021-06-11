@@ -40,10 +40,10 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(customers);
         }
 
-        public IHttpActionResult Get(string name)
+        public IHttpActionResult Get(int id)
         {
             CustomerService customerService = CreateCustomerService();
-            var customer = customerService.GetCustomerByName(name);
+            var customer = customerService.GetCustomerById(id);
             return Ok(customer);
         }
 
@@ -67,7 +67,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             if (!service.DeleteCustomer(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("You have successfully deleted the Customer");
         }
     }
 }

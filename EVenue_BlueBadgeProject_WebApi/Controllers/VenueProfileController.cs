@@ -53,14 +53,14 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(venueProfile);
         }
 
-        public IHttpActionResult Delete(string name)
+        public IHttpActionResult Delete(int id)
         {
             var service = CreateVenueProfileService();
 
-            if (!service.DeleteVenueProfile(name))
+            if (!service.DeleteVenueProfile(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("You have successfully deleted the Venue");
         }
     }
 }
