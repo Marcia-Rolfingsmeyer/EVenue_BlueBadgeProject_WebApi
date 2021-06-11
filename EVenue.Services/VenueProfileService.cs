@@ -38,7 +38,7 @@ namespace EVenue.Services
             }
         }
 
-        public IEnumerable<VenueProfileListItem> GetVenueProfile()
+        public IEnumerable<VenueProfileListItem> GetVenueProfiles()
         {
             using (var ctx = new ApplicationDbContext())
             {

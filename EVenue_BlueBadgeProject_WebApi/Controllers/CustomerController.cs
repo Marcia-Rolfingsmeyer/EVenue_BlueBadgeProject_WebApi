@@ -33,6 +33,20 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(customer);
         }
 
+        public IHttpActionResult Get()
+        {
+            CustomerService customerService = CreateCustomerService();
+            var customers = customerService.GetCustomers();
+            return Ok(customers);
+        }
+
+        public IHttpActionResult Get(string name)
+        {
+            CustomerService customerService = CreateCustomerService();
+            var customer = customerService.GetCustomerByName(name);
+            return Ok(customer);
+        }
+
         public IHttpActionResult Put(CustomerEdit customer)
         {
             if (!ModelState.IsValid)
