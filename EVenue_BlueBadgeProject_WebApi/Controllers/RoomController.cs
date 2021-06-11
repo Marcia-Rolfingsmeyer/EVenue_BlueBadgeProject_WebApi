@@ -11,7 +11,6 @@ using System.Web.Http;
 namespace EVenue_BlueBadgeProject_WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Note")]
     public class RoomController : ApiController
     {
         [HttpPost]
@@ -60,10 +59,11 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             if (!service.UpdateRoom(model))
                 return InternalServerError();
 
-            return Ok();
+            return Ok($"You successfully updated {model.RoomName}!");
         }
 
         [HttpDelete]
+        [Route("api/Room/{id}")]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateRoomService();
@@ -71,7 +71,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             if (!service.DeleteRoom(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("You successfully DELETED the room entity!");
         }
 
         private RoomService CreateRoomService()

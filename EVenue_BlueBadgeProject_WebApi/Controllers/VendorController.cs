@@ -11,7 +11,6 @@ using System.Web.Http;
 namespace EVenue_BlueBadgeProject_WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Vendor")]
     public class VendorController : ApiController
     {
         [HttpPost]
@@ -64,6 +63,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
         }
 
         [HttpDelete]
+        [Route("api/Vendor/{id}")]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateVendorService();
