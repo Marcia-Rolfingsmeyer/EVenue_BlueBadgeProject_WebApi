@@ -90,6 +90,10 @@
     <Compile Include="Migrations\202106111423290_InitialMigration.Designer.cs">
       <DependentUpon>202106111423290_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.cs" />
+    <Compile Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.Designer.cs">
+      <DependentUpon>202106111959193_AddEnumRoomTypeInRoomEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,9 +109,15 @@
     <EmbeddedResource Include="Migrations\202106111423290_InitialMigration.resx">
       <DependentUpon>202106111423290_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.resx">
+      <DependentUpon>202106111959193_AddEnumRoomTypeInRoomEntity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EnumClasses\" />
+    <ProjectReference Include="..\EnumProperties\EnumProperties.csproj">
+      <Project>{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}</Project>
+      <Name>EnumProperties</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
