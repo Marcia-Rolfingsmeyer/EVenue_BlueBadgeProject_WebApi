@@ -26,7 +26,7 @@ namespace EVenue.Services
                 RoomName = model.RoomName,
                 Description = model.Description,
                 Amenities = model.Amenities,
-                //TypeOfRoom = e.(RoomType)
+                TypeOfRoom = model.TypeOfRoom,
                 PricePerHour = model.PricePerHour,
                 BasePricePerDay = model.BasePricePerDay
             };
