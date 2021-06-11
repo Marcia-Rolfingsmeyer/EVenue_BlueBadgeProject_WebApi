@@ -70,7 +70,7 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .VenueProfiles
-                    .Single(e => e.VenueName == updateVenue.VenueName && e.OwnerId == _ownerId);
+                    .Single(e => e.VenueProfileId == updateVenue.VenueProfileId && e.OwnerId == _ownerId);
 
                 entity.VenueName = updateVenue.VenueName;
                 entity.VenueContactPerson = updateVenue.VenueContactPerson;
@@ -83,14 +83,14 @@ namespace EVenue.Services
             }
         }
 
-        public bool DeleteVenueProfile(string venueName)
+        public bool DeleteVenueProfile(int venueId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .VenueProfiles
-                    .Single(e => e.VenueName == venueName && e.OwnerId == _ownerId);
+                    .Single(e => e.VenueProfileId == venueId && e.OwnerId == _ownerId);
 
                 ctx.VenueProfiles.Remove(entity);
 
