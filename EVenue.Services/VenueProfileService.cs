@@ -63,34 +63,34 @@ namespace EVenue.Services
             }
         }
 
-        public bool UpdateVenueProfile(VenueProfileEdit model)
+        public bool UpdateVenueProfile(VenueProfileEdit updateVenue)
         {
             using(var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .VenueProfiles
-                    .Single(e => e.VenueProfileId == model.VenueProfileId && e.OwnerId == _ownerId);
+                    .Single(e => e.VenueName == updateVenue.VenueName && e.OwnerId == _ownerId);
 
-                entity.VenueName = model.VenueName;
-                entity.VenueContactPerson = model.VenueContactPerson;
-                entity.VenuePhone = model.VenuePhone;
-                entity.VenueAddress = model.VenueAddress;
-                entity.VenueEmail = model.VenueEmail;
-                entity.VenueProfileId = model.VenueProfileId;
+                entity.VenueName = updateVenue.VenueName;
+                entity.VenueContactPerson = updateVenue.VenueContactPerson;
+                entity.VenuePhone = updateVenue.VenuePhone;
+                entity.VenueAddress = updateVenue.VenueAddress;
+                entity.VenueEmail = updateVenue.VenueEmail;
+                entity.VenueProfileId = updateVenue.VenueProfileId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1; 
             }
         }
 
-        public bool DeleteVenueProfile(int venueId)
+        public bool DeleteVenueProfile(string venueName)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .VenueProfiles
-                    .Single(e => e.VenueProfileId == venueId && e.OwnerId == _ownerId);
+                    .Single(e => e.VenueName == venueName && e.OwnerId == _ownerId);
 
                 ctx.VenueProfiles.Remove(entity);
 
