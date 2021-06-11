@@ -21,6 +21,7 @@ namespace EVenue.Models.VenueProfileModels
 
         public string VenueEmail { get; set; }
 
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
         [Display(Name = "Modified")]
