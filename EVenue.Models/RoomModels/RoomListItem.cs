@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnumProperties.RoomTypeEnum;
 
 namespace EVenue.Models.RoomModels
 {
@@ -18,8 +19,8 @@ namespace EVenue.Models.RoomModels
 
         public string Amenities { get; set; }
 
-        //[Display(Name = "Room Size")]
-        //public RoomType TypeOfRoom { get; set; }
+        [Display(Name = "Room Size")]
+        public RoomType TypeOfRoom { get; set; }
 
         [Display(Name = "Price Per Hour")]
         [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0.")]

@@ -8,13 +8,6 @@ using static EnumProperties.RoomTypeEnum;
 
 namespace EVenue.Models.RoomModels
 {
-    //public enum RoomType
-    //{
-    //    SmallHall = 1,
-    //    MediumHall = 2,
-    //    LargeHall = 3
-    //}
-
     public class RoomCreate
     {
         [Required]
