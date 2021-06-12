@@ -63,6 +63,31 @@ namespace EVenue.Services
             }
         }
 
+        public IEnumerable<VenueProfileListItem> GetVenueProfileById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .VenueProfiles
+                    .Where(e => e.VenueProfileId == id && e.OwnerId == _ownerId)
+                    .Select(
+                        e =>
+                        new VenueProfileListItem
+                        {
+                            VenueProfileId = e.VenueProfileId,
+                            VenueName = e.VenueName,
+                            VenueContactPerson = e.VenueContactPerson,
+                            VenueAddress = e.VenueAddress,
+                            VenueEmail = e.VenueEmail,
+                            VenuePhone = e.VenuePhone,
+                            CreatedUtc = e.CreatedUtc,
+                            ModifiedUtc = e.ModifiedUtc
+                        });
+                return query.ToArray();
+            }
+        }
+
         public bool UpdateVenueProfile(VenueProfileEdit updateVenue)
         {
             using(var ctx = new ApplicationDbContext())

@@ -40,6 +40,13 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(venueProfile);
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            VenueProfileService venueProfileService = CreateVenueProfileService();
+            var venue = venueProfileService.GetVenueProfileById(id);
+            return Ok(venue);
+        }
+
         public IHttpActionResult Put(VenueProfileEdit venueProfile)
         {
             if (!ModelState.IsValid)
