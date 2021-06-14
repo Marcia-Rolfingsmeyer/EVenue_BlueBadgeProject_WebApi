@@ -45,6 +45,15 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(occasion);
         }
 
+        //GET FutureOccasions
+        [Route("api/Occasion/GetFutureOccasions")]
+        public IHttpActionResult GetFutureOccasions()
+        {
+            var service = CreateOccasionService();
+            var occasions = service.GetFutureOccasions();
+            return Ok(occasions);
+        }
+
         //PUT Occasion
         public IHttpActionResult Put(int id, OccasionEdit model)
         {
