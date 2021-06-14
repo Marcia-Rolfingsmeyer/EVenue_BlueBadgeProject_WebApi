@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerModels\CustomerCreate.cs" />
+    <Compile Include="CustomerOccasionModels\CustomerOccasionCreate.cs" />
     <Compile Include="OccasionModels\OccasionDetail.cs" />
     <Compile Include="OccasionModels\OccasionEdit.cs" />
     <Compile Include="OccasionModels\OccasionListItem.cs" />
@@ -87,5 +88,6 @@
       <Name>EnumProperties</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
