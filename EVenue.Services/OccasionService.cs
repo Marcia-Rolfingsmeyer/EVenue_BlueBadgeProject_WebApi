@@ -30,9 +30,9 @@ namespace EVenue.Services
                 StartTime = model.StartTime,
                 EndTime = model.EndTime,
                 VenueProfileId = model.VenueProfileId,
-                CustomerId = model.CustomerId,
-                RoomId = model.RoomId,
-                VendorId = model.VendorId,
+                //CustomerId = model.CustomerId,
+                //RoomId = model.RoomId,
+                //VendorId = model.VendorId,
                 TypeOfOccasion = model.TypeOfOccasion
             };
 
@@ -76,9 +76,9 @@ namespace EVenue.Services
                     StartTime = entity.StartTime,
                     EndTime = entity.EndTime,
                     VenueProfileId = entity.VenueProfileId,
-                    CustomerId = entity.CustomerId,
-                    RoomId = entity.RoomId,
-                    VendorId = entity.VendorId,
+                    //CustomerId = entity.CustomerId,
+                    //RoomId = entity.RoomId,
+                    //VendorId = entity.VendorId,
                     TypeOfOccasion = entity.TypeOfOccasion
                 };
             }
@@ -111,9 +111,9 @@ namespace EVenue.Services
                 entity.StartTime = model.StartTime;
                 entity.EndTime = model.EndTime;
                 entity.VenueProfileId = model.VenueProfileId;
-                entity.CustomerId = model.CustomerId;
-                entity.RoomId = model.RoomId;
-                entity.VendorId = model.VendorId;
+                //entity.CustomerId = model.CustomerId;
+                //entity.RoomId = model.RoomId;
+                //entity.VendorId = model.VendorId;
                 entity.TypeOfOccasion = model.TypeOfOccasion;
 
                 return ctx.SaveChanges() == 1;

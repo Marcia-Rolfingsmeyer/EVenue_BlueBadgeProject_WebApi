@@ -3,6 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using EVenue.Data.JointTables;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -39,6 +40,9 @@ namespace EVenue.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<CustomerOccasion> CustomerOccasions { get; set; }
+        public DbSet<RoomOccasion> RoomOccasions { get; set; }
+        public DbSet<VendorOccasion> VendorOccasions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
