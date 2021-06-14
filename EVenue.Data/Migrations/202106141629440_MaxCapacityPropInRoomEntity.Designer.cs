@@ -7,13 +7,13 @@ namespace EVenue.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion : IMigrationMetadata
+    public sealed partial class MaxCapacityPropInRoomEntity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MaxCapacityPropInRoomEntity));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion"; }
+            get { return "202106141629440_MaxCapacityPropInRoomEntity"; }
         }
         
         string IMigrationMetadata.Source

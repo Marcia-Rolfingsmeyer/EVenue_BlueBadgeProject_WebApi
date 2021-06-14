@@ -8,11 +8,11 @@ using static EnumProperties.OccasionEnum;
 
 namespace EVenue.Models.OccasionModels
 {
-    public class OccasionCreate
+    public class OccasionEdit
     {
         public string OccasionName { get; set; }
 
-        [Range(1,9,ErrorMessage ="TypeOfOccasion requires a value from 1-9")]
+        [Range(1, 9, ErrorMessage = "TypeOfOccasion requires a value from 1-9")]
         public OccasionType TypeOfOccasion { get; set; }
 
         public DateTime StartTime { get; set; }

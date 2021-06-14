@@ -1,4 +1,5 @@
-﻿using EVenue.Services;
+﻿using EVenue.Models.CustomerModels;
+using EVenue.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -19,31 +20,54 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return customerService;
         }
 
-        /* GET api/<controller>
-        public IEnumerable<string> Get()
+        public IHttpActionResult Post(CustomerCreate customer)
         {
-            return new string[] { "value1", "value2" };
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateCustomerService();
+
+            if (!service.CreateCustomer(customer))
+                return InternalServerError();
+
+            return Ok(customer);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        public IHttpActionResult Get()
         {
-            return "value";
+            CustomerService customerService = CreateCustomerService();
+            var customers = customerService.GetCustomers();
+            return Ok(customers);
         }
 
-        // POST api/<controller>
-        public void Post([FromBody] string value)
+        public IHttpActionResult Get(int id)
         {
+            CustomerService customerService = CreateCustomerService();
+            var customer = customerService.GetCustomerById(id);
+            return Ok(customer);
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
+        public IHttpActionResult Put(CustomerEdit customer)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateCustomerService();
+
+            if (!service.UpdateCustomer(customer))
+                return InternalServerError();
+
+            return Ok(customer);
         }
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
-        }*/
+            var service = CreateCustomerService();
+
+            if (!service.DeleteCustomer(id))
+                return InternalServerError();
+
+            return Ok("You have successfully deleted the Customer");
+        }
     }
 }

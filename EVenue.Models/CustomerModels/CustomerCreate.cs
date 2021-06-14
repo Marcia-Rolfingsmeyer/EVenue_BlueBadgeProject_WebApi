@@ -9,11 +9,7 @@ namespace EVenue.Models.CustomerModels
 {
     public class CustomerCreate
     {
-        [Required]
         public int CustomerId { get; set; }
-
-        [Required]
-        public Guid OwnerId { get; set; }
 
         [Required]
         public string CustomerFirstName { get; set; }

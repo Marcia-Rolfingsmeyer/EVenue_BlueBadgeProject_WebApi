@@ -86,9 +86,21 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs" />
-    <Compile Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.Designer.cs">
-      <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
+    <Compile Include="Migrations\202106111423290_InitialMigration.cs" />
+    <Compile Include="Migrations\202106111423290_InitialMigration.Designer.cs">
+      <DependentUpon>202106111423290_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.cs" />
+    <Compile Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.Designer.cs">
+      <DependentUpon>202106111959193_AddEnumRoomTypeInRoomEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141520121_AddTypeOfOccasionEnum.cs" />
+    <Compile Include="Migrations\202106141520121_AddTypeOfOccasionEnum.Designer.cs">
+      <DependentUpon>202106141520121_AddTypeOfOccasionEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.cs" />
+    <Compile Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.Designer.cs">
+      <DependentUpon>202106141629440_MaxCapacityPropInRoomEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
@@ -102,9 +114,24 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.resx">
-      <DependentUpon>202106091434110_InitalMigrainCreateClasssesVenueProfileCustomerRoomVendorOccasion.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106111423290_InitialMigration.resx">
+      <DependentUpon>202106111423290_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.resx">
+      <DependentUpon>202106111959193_AddEnumRoomTypeInRoomEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141520121_AddTypeOfOccasionEnum.resx">
+      <DependentUpon>202106141520121_AddTypeOfOccasionEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.resx">
+      <DependentUpon>202106141629440_MaxCapacityPropInRoomEntity.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnumProperties\EnumProperties.csproj">
+      <Project>{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}</Project>
+      <Name>EnumProperties</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

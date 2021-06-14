@@ -4,16 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnumProperties.RoomTypeEnum;
 
 namespace EVenue.Models.RoomModels
 {
-    //public enum RoomType
-    //{
-    //    SmallHall = 1,
-    //    MediumHall = 2,
-    //    LargeHall = 3
-    //}
-
     public class RoomCreate
     {
         [Required]
@@ -21,25 +15,29 @@ namespace EVenue.Models.RoomModels
         public string RoomName { get; set; }
 
         [Required]
-        [Display(Name = "Description")]
         public string Description { get; set; }
 
         [Required]
-        [Display(Name = "Amenities")]
         public string Amenities { get; set; }
 
-        //[Required]
-        //[Display(Name = "Room Size")]
-        //public RoomType TypeOfRoom { get; set; }
+        [Required]
+        [Display(Name = "Room Type")]
+        [Range(1, 2, ErrorMessage = "must select 1 (Indoors), 2 (Outdoors), or 3 (Both)")]
+        public RoomType TypeOfRoom { get; set; }
 
         [Required]
         [Display(Name = "Price Per Hour")]
-        [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0.")]
+        [Range(0, int.MaxValue, ErrorMessage = "The price must be greater than 0.")]
         public double PricePerHour { get; set; }
 
         [Required]
         [Display(Name = "Base Price Per Day")]
-        [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0.")]
+        [Range(0, int.MaxValue, ErrorMessage = "The price must be greater than 0.")]
         public double BasePricePerDay { get; set; }
+
+        [Required]
+        [Display(Name = "Maximum Capacity")]
+        [Range(0, int.MaxValue)]
+        public int MaxCapacity { get; set; }
     }
 }

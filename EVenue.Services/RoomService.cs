@@ -26,9 +26,10 @@ namespace EVenue.Services
                 RoomName = model.RoomName,
                 Description = model.Description,
                 Amenities = model.Amenities,
-                //TypeOfRoom = e.(RoomType)
+                TypeOfRoom = model.TypeOfRoom,
                 PricePerHour = model.PricePerHour,
-                BasePricePerDay = model.BasePricePerDay
+                BasePricePerDay = model.BasePricePerDay,
+                MaxCapacity = model.MaxCapacity
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -36,7 +37,6 @@ namespace EVenue.Services
                 ctx.Rooms.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-
         }
 
         // GET
@@ -45,22 +45,82 @@ namespace EVenue.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx
-                        .Rooms
-                        .Where(e => e.OwnerId == _ownerId)
-                        .Select(
-                            e => new RoomListItem
-                            {
-                                RoomId = e.RoomId,
-                                RoomName = e.RoomName,
-                                Description = e.Description,
-                                Amenities = e.Amenities,
-                                //TypeOfRoom = e.(RoomType)
-                                PricePerHour = e.PricePerHour,
-                                BasePricePerDay = e.BasePricePerDay
-                            });
+                        ctx
+                            .Rooms
+                            .Where(e => e.OwnerId == _ownerId)
+                            .Select(
+                                e => new RoomListItem
+                                {
+                                    RoomId = e.RoomId,
+                                    RoomName = e.RoomName,
+                                    TypeOfRoom = e.TypeOfRoom,
+                                    MaxCapacity = e.MaxCapacity
+                                });
 
                 return query.ToArray();
+            }
+        }
+
+        //GET By Id
+        public RoomDetail GetById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Rooms
+                            .SingleOrDefault(e => e.RoomId == id && e.OwnerId == _ownerId);
+
+                return
+                    new RoomDetail
+                    {
+                        RoomId = entity.RoomId,
+                        RoomName = entity.RoomName,
+                        Description = entity.Description,
+                        Amenities = entity.Amenities,
+                        TypeOfRoom = entity.TypeOfRoom,
+                        PricePerHour = entity.PricePerHour,
+                        BasePricePerDay = entity.BasePricePerDay,
+                        MaxCapacity = entity.MaxCapacity
+                    };
+            }
+        }
+
+        //UPDATE
+        public bool UpdateRoom(RoomEdit updateRoom)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Rooms
+                            .SingleOrDefault(e => e.RoomId == updateRoom.RoomId && e.OwnerId == _ownerId);
+
+                entity.RoomName = updateRoom.RoomName;
+                entity.Description = updateRoom.Description;
+                entity.Amenities = updateRoom.Amenities;
+                entity.TypeOfRoom = updateRoom.TypeOfRoom;
+                entity.PricePerHour = updateRoom.PricePerHour;
+                entity.BasePricePerDay = updateRoom.BasePricePerDay;
+                entity.MaxCapacity = updateRoom.MaxCapacity;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //DELETE
+        public bool DeleteRoom (int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Rooms
+                        .SingleOrDefault(e => e.RoomId == id && e.OwnerId == _ownerId);
+
+                ctx.Rooms.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

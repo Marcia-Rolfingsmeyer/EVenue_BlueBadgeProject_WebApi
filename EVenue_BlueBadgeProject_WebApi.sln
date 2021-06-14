@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVenue.Models", "EVenue.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVenue.Services", "EVenue.Services\EVenue.Services.csproj", "{03ACF02F-FBEB-4CEB-BA17-33DDE8178E2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumProperties", "EnumProperties\EnumProperties.csproj", "{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{03ACF02F-FBEB-4CEB-BA17-33DDE8178E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03ACF02F-FBEB-4CEB-BA17-33DDE8178E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03ACF02F-FBEB-4CEB-BA17-33DDE8178E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
