@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnumProperties.OccasionEnum;
 
 namespace EVenue.Models.OccasionModels
 {
@@ -10,7 +11,7 @@ namespace EVenue.Models.OccasionModels
     {
         public string OccasionName { get; set; }
 
-        //public OccasionType TypeOfOccasion { get; set; }
+        public OccasionType TypeOfOccasion { get; set; }
 
         public DateTime StartTime { get; set; }
 

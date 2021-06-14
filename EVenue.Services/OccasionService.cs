@@ -32,7 +32,8 @@ namespace EVenue.Services
                 VenueProfileId = model.VenueProfileId,
                 CustomerId = model.CustomerId,
                 RoomId = model.RoomId,
-                VendorId = model.VendorId
+                VendorId = model.VendorId,
+                TypeOfOccasion = model.TypeOfOccasion
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -77,7 +78,8 @@ namespace EVenue.Services
                     VenueProfileId = entity.VenueProfileId,
                     CustomerId = entity.CustomerId,
                     RoomId = entity.RoomId,
-                    VendorId = entity.VendorId
+                    VendorId = entity.VendorId,
+                    TypeOfOccasion = entity.TypeOfOccasion
                 };
             }
         }
@@ -112,6 +114,7 @@ namespace EVenue.Services
                 entity.CustomerId = model.CustomerId;
                 entity.RoomId = model.RoomId;
                 entity.VendorId = model.VendorId;
+                entity.TypeOfOccasion = model.TypeOfOccasion;
 
                 return ctx.SaveChanges() == 1;
             }
