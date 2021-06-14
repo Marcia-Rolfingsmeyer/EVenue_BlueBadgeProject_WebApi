@@ -24,7 +24,7 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             if (!service.CreateRoom(room))
                 return InternalServerError();
 
-            return Ok(room);
+            return Ok($"You succesfully created {room.RoomName}!");
         }
 
         [HttpGet]
