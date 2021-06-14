@@ -28,7 +28,8 @@ namespace EVenue.Services
                 Amenities = model.Amenities,
                 TypeOfRoom = model.TypeOfRoom,
                 PricePerHour = model.PricePerHour,
-                BasePricePerDay = model.BasePricePerDay
+                BasePricePerDay = model.BasePricePerDay,
+                MaxCapacity = model.MaxCapacity
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -52,11 +53,7 @@ namespace EVenue.Services
                                 {
                                     RoomId = e.RoomId,
                                     RoomName = e.RoomName,
-                                    Description = e.Description,
-                                    Amenities = e.Amenities,
-                                    TypeOfRoom = e.TypeOfRoom,
-                                    PricePerHour = e.PricePerHour,
-                                    BasePricePerDay = e.BasePricePerDay
+                                    TypeOfRoom = e.TypeOfRoom
                                 });
 
                 return query.ToArray();
@@ -82,7 +79,8 @@ namespace EVenue.Services
                         Amenities = entity.Amenities,
                         TypeOfRoom = entity.TypeOfRoom,
                         PricePerHour = entity.PricePerHour,
-                        BasePricePerDay = entity.BasePricePerDay
+                        BasePricePerDay = entity.BasePricePerDay,
+                        MaxCapacity = entity.MaxCapacity
                     };
             }
         }
@@ -103,6 +101,7 @@ namespace EVenue.Services
                 entity.TypeOfRoom = updateRoom.TypeOfRoom;
                 entity.PricePerHour = updateRoom.PricePerHour;
                 entity.BasePricePerDay = updateRoom.BasePricePerDay;
+                entity.MaxCapacity = updateRoom.MaxCapacity;
 
                 return ctx.SaveChanges() == 1;
             }

@@ -25,15 +25,18 @@ namespace EVenue.Data
         [Required]
         public string Amenities { get; set; }
 
-        [Required]
+        [Required]      
         public RoomType TypeOfRoom { get; set; }
-    
+
+        [Range(0, 200000)]
         [Required]
         public double PricePerHour { get; set; }
 
+        [Range(0, 200000)]
         [Required]
         public double BasePricePerDay { get; set; }
 
-        public virtual List<Occasion> Occasions { get; set; } = new List<Occasion>();
+        [Required]
+        public int MaxCapacity { get; set; }
     }
 }

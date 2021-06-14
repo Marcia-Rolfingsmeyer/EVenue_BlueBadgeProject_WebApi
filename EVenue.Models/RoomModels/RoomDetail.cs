@@ -19,16 +19,17 @@ namespace EVenue.Models.RoomModels
 
         public string Amenities { get; set; }
 
-        [Display(Name = "Room Size")]
+        [Display(Name = "Room Type")]
         public RoomType TypeOfRoom { get; set; }
 
         [Display(Name = "Price Per Hour")]
-        [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0.")]
         public double PricePerHour { get; set; }
 
         [Display(Name = "Base Price Per Day")]
-        [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0.")]
         public double BasePricePerDay { get; set; }
 
+        [Required]
+        [Display(Name = "Maximum Capacity")]
+        public int MaxCapacity { get; set; }
     }
 }
