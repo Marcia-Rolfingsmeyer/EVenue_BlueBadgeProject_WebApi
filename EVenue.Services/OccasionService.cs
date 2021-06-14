@@ -79,7 +79,8 @@ namespace EVenue.Services
                     //CustomerId = entity.CustomerId,
                     //RoomId = entity.RoomId,
                     //VendorId = entity.VendorId,
-                    TypeOfOccasion = entity.TypeOfOccasion
+                    TypeOfOccasion = entity.TypeOfOccasion,
+                    TotalPrice = entity.TotalPrice()
                 };
             }
         }
