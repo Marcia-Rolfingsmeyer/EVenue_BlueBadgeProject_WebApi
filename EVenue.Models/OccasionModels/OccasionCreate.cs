@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnumProperties.OccasionEnum;
 
 namespace EVenue.Models.OccasionModels
 {
@@ -11,7 +12,8 @@ namespace EVenue.Models.OccasionModels
     {
         public string OccasionName { get; set; }
 
-        //public OccasionType TypeOfOccasion { get; set; }
+        [Range(1,9,ErrorMessage ="TypeOfOccasion requires a value from 1-9")]
+        public OccasionType TypeOfOccasion { get; set; }
 
         public DateTime StartTime { get; set; }
 
