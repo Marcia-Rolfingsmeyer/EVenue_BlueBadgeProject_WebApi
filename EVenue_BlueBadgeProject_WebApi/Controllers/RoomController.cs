@@ -48,6 +48,22 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(room);
         }
 
+        //Get method, parameter is number of attendees thus searchable method
+        [HttpGet]
+        //[Route("api/Room/Capacity/{id}")]
+        public IHttpActionResult GetRoomsWithinCapacity(int numberOfAttendees)
+        {
+            var service = CreateRoomService();
+            var rooms = service.GetPossibleRoomsByCapacity(numberOfAttendees);
+
+            if (rooms == null)
+                return NotFound();
+
+            return Ok(rooms);
+        }
+
+
+
         [HttpPut]
         public IHttpActionResult Put(RoomEdit model)
         {

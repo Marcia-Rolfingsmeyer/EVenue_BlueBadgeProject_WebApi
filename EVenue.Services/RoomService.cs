@@ -86,6 +86,29 @@ namespace EVenue.Services
             }
         }
 
+        //GET rooms can hold number of attendees
+        public IEnumerable<RoomListItem> GetPossibleRoomsByCapacity(int numberOfAttendees)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Rooms
+                        .Where(s => s.MaxCapacity >= numberOfAttendees)
+                        .Select(
+                                e => new RoomListItem
+                                {
+                                    RoomId = e.RoomId,
+                                    RoomName = e.RoomName,
+                                    TypeOfRoom = e.TypeOfRoom,
+                                    MaxCapacity = e.MaxCapacity
+                                });
+
+                return query.ToArray();
+
+            }
+        }
+
         //UPDATE
         public bool UpdateRoom(RoomEdit updateRoom)
         {
