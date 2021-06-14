@@ -16,12 +16,16 @@ namespace EVenue.Models.VenueProfileModels
 
         public string VenueContactPerson { get; set; }
 
-        [Required]
         public string VenuePhone { get; set; }
 
-        [Required]
         public string VenueAddress { get; set; }
 
         public string VenueEmail { get; set; }
+
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

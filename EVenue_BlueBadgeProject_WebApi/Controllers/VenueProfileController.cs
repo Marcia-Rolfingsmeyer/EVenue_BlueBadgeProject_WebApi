@@ -40,6 +40,13 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(venueProfile);
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            VenueProfileService venueProfileService = CreateVenueProfileService();
+            var venue = venueProfileService.GetVenueProfileById(id);
+            return Ok(venue);
+        }
+
         public IHttpActionResult Put(VenueProfileEdit venueProfile)
         {
             if (!ModelState.IsValid)
@@ -53,14 +60,14 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(venueProfile);
         }
 
-        public IHttpActionResult Delete(string name)
+        public IHttpActionResult Delete(int id)
         {
             var service = CreateVenueProfileService();
 
-            if (!service.DeleteVenueProfile(name))
+            if (!service.DeleteVenueProfile(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("You have successfully deleted the Venue");
         }
     }
 }

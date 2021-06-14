@@ -63,14 +63,14 @@ namespace EVenue.Services
             }
         }
 
-        public CustomerDetail GetCustomerByName(string name)
+        public CustomerDetail GetCustomerById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerFirstName == name && e.OwnerId == _ownerId);
+                    .Single(e => e.CustomerId == id && e.OwnerId == _ownerId);
                 return
                     new CustomerDetail
                     {

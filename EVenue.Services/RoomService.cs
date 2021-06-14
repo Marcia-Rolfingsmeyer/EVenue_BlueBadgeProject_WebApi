@@ -26,7 +26,7 @@ namespace EVenue.Services
                 RoomName = model.RoomName,
                 Description = model.Description,
                 Amenities = model.Amenities,
-                //TypeOfRoom = e.(RoomType)
+                TypeOfRoom = model.TypeOfRoom,
                 PricePerHour = model.PricePerHour,
                 BasePricePerDay = model.BasePricePerDay
             };
@@ -54,7 +54,7 @@ namespace EVenue.Services
                                     RoomName = e.RoomName,
                                     Description = e.Description,
                                     Amenities = e.Amenities,
-                                    //TypeOfRoom = e.(RoomType)
+                                    TypeOfRoom = e.TypeOfRoom,
                                     PricePerHour = e.PricePerHour,
                                     BasePricePerDay = e.BasePricePerDay
                                 });
@@ -80,6 +80,7 @@ namespace EVenue.Services
                         RoomName = entity.RoomName,
                         Description = entity.Description,
                         Amenities = entity.Amenities,
+                        TypeOfRoom = entity.TypeOfRoom,
                         PricePerHour = entity.PricePerHour,
                         BasePricePerDay = entity.BasePricePerDay
                     };
@@ -99,6 +100,7 @@ namespace EVenue.Services
                 entity.RoomName = updateRoom.RoomName;
                 entity.Description = updateRoom.Description;
                 entity.Amenities = updateRoom.Amenities;
+                entity.TypeOfRoom = updateRoom.TypeOfRoom;
                 entity.PricePerHour = updateRoom.PricePerHour;
                 entity.BasePricePerDay = updateRoom.BasePricePerDay;
 
