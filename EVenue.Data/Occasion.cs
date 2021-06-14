@@ -5,17 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnumProperties.OccasionEnum;
 
 namespace EVenue.Data
 {
-    //public enum OccasionType {Other, Wedding, Retirement, Birthday, Corporate, Club, Funeral}
+
     public class Occasion
     {
         [Key]
         public int OccasionId { get; set; }
         public Guid OwnerId { get; set; }
         public string OccasionName { get; set; }
-        //public OccasionType TypeOfOccasion { get; set; }
+        public OccasionType TypeOfOccasion { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
