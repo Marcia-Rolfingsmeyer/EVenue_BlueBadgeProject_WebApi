@@ -53,7 +53,8 @@ namespace EVenue.Services
                                 {
                                     RoomId = e.RoomId,
                                     RoomName = e.RoomName,
-                                    TypeOfRoom = e.TypeOfRoom
+                                    TypeOfRoom = e.TypeOfRoom,
+                                    MaxCapacity = e.MaxCapacity
                                 });
 
                 return query.ToArray();
