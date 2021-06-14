@@ -82,6 +82,23 @@ namespace EVenue.Services
             }
         }
 
+        //GetFutureOccasions
+        public IEnumerable<OccasionListItem> GetFutureOccasions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Occasions
+                            .Where(e => e.OwnerId == _userId && e.StartTime > DateTime.Now)
+                            .Select(e => new OccasionListItem
+                            {
+                                OccasionId = e.OccasionId,
+                                OccasionName = e.OccasionName,
+                                StartTime = e.StartTime
+                            });
+                return query.ToArray();
+            }
+        }
+
         //UpdateOccasion
         public bool UpdateOccasion(int id, OccasionEdit model)
         {
