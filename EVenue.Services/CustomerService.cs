@@ -22,7 +22,6 @@ namespace EVenue.Services
             var entity = new Customer()
             {
                 OwnerId = _ownerId,
-                CustomerId = model.CustomerId,
                 CustomerFirstName = model.CustomerFirstName,
                 CustomerLastName = model.CustomerLastName,
                 CustomerAddress = model.CustomerAddress,
@@ -74,7 +73,6 @@ namespace EVenue.Services
                 return
                     new CustomerDetail
                     {
-                        CustomerId = entity.CustomerId,
                         CustomerFirstName = entity.CustomerFirstName,
                         CustomerLastName = entity.CustomerLastName,
                         CustomerAddress = entity.CustomerAddress,
