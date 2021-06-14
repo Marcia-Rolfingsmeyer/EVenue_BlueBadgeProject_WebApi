@@ -10,11 +10,8 @@ namespace EnumProperties
     {
         public enum RoomType
         {
-            SmallHall = 1,
-            MediumHall,
-            LargeHall
+            Indoors = 1,
+            Outdoors
         }
-
-        public RoomType TypeOfRoom { get; set; }
     }
 }
