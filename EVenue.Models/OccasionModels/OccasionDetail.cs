@@ -30,5 +30,7 @@ namespace EVenue.Models.OccasionModels
         public int RoomId { get; set; }
 
         public int VendorId { get; set; }
+
+        public double TotalPrice { get; set; }
     }
 }

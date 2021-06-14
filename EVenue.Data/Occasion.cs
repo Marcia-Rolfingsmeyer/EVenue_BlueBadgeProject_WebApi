@@ -45,5 +45,24 @@ namespace EVenue.Data
         //public virtual ICollection<Room> Rooms { get; set; }
         //public virtual ICollection<Vendor> Vendors { get; set; }
 
+
+
+        //TotalPrice Method
+        public double TotalPrice()
+        {
+            TimeSpan duration = EndTime - StartTime;
+            double numOfHours = duration.TotalHours;
+            double price = 0;
+            foreach (RoomOccasion roomOccasion in RoomOccasions)
+            {
+                price += roomOccasion.Room.BasePricePerDay;
+                price += numOfHours * roomOccasion.Room.PricePerHour;
+            }
+            foreach (VendorOccasion vendorOccasion in VendorOccasions)
+            {
+                price += vendorOccasion.Vendor.VendorFee;
+            }
+            return price;
+        }
     }
 }
