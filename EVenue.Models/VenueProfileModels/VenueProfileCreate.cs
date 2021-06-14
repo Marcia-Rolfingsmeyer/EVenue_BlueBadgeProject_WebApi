@@ -9,8 +9,6 @@ namespace EVenue.Models.VenueProfileModels
 {
     public class VenueProfileCreate
     {
-        public int VenueProfileId { get; set; }
-
         [Required]
         public string VenueName { get; set; }
 

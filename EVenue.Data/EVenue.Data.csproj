@@ -86,6 +86,9 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="JointTables\CustomerOccasion.cs" />
+    <Compile Include="JointTables\RoomOccasion.cs" />
+    <Compile Include="JointTables\VendorOccasion.cs" />
     <Compile Include="Migrations\202106111423290_InitialMigration.cs" />
     <Compile Include="Migrations\202106111423290_InitialMigration.Designer.cs">
       <DependentUpon>202106111423290_InitialMigration.cs</DependentUpon>
