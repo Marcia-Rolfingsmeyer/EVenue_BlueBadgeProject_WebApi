@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.Designer.cs">
       <DependentUpon>202106111959193_AddEnumRoomTypeInRoomEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106141520121_AddTypeOfOccasionEnum.cs" />
+    <Compile Include="Migrations\202106141520121_AddTypeOfOccasionEnum.Designer.cs">
+      <DependentUpon>202106141520121_AddTypeOfOccasionEnum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106111959193_AddEnumRoomTypeInRoomEntity.resx">
       <DependentUpon>202106111959193_AddEnumRoomTypeInRoomEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141520121_AddTypeOfOccasionEnum.resx">
+      <DependentUpon>202106141520121_AddTypeOfOccasionEnum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
