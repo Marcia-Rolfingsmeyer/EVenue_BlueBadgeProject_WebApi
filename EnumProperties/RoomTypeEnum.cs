@@ -11,7 +11,8 @@ namespace EnumProperties
         public enum RoomType
         {
             Indoors = 1,
-            Outdoors
+            Outdoors, 
+            Both
         }
     }
 }

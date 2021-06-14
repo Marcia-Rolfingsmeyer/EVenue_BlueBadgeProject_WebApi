@@ -16,5 +16,6 @@ namespace EVenue.Models.RoomModels
         public RoomType TypeOfRoom { get; set; }
         public double PricePerHour { get; set; }
         public double BasePricePerDay { get; set; }
+        public int MaxCapacity { get; set; }
     }
 }

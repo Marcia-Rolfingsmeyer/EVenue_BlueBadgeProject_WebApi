@@ -25,8 +25,7 @@ namespace EVenue.Data
         [Required]
         public string Amenities { get; set; }
 
-        [Required]
-        [Range (1, 2, ErrorMessage ="must select 1 (indoors) or 2 (outdoors)")]
+        [Required]      
         public RoomType TypeOfRoom { get; set; }
 
         [Range(0, 200000)]
@@ -38,7 +37,6 @@ namespace EVenue.Data
         public double BasePricePerDay { get; set; }
 
         [Required]
-        [Range(0, int.MaxValue)]
         public int MaxCapacity { get; set; }
     }
 }
