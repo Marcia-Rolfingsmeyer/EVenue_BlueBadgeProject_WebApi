@@ -30,7 +30,7 @@ namespace EVenue.Services
                 StartTime = model.StartTime,
                 EndTime = model.EndTime,
                 VenueProfileId = model.VenueProfileId,
-                CustomerId = model.CustomerId,
+                //CustomerId = model.CustomerId,
                 //RoomId = model.RoomId,
                 //VendorId = model.VendorId,
                 TypeOfOccasion = model.TypeOfOccasion

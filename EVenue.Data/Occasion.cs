@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EVenue.Data.JointTables;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -36,9 +37,9 @@ namespace EVenue.Data
         //public int VendorId { get; set; }
         //public virtual Vendor Vendor { get; set; }
 
-        public virtual IEnumerable<JointTables.CustomerOccasion> CustomerOccasions { get; set; }
-        public virtual IEnumerable<JointTables.RoomOccasion> RoomOccasions { get; set; }
-        public virtual IEnumerable<JointTables.VendorOccasion> VendorOccasions { get; set; }
+        public virtual IEnumerable<CustomerOccasion> CustomerOccasions { get; set; }
+        public virtual IEnumerable<RoomOccasion> RoomOccasions { get; set; }
+        public virtual IEnumerable<VendorOccasion> VendorOccasions { get; set; }
 
         //public virtual ICollection<Rental> Rentals { get; set; }
         //public virtual ICollection<Room> Rooms { get; set; }

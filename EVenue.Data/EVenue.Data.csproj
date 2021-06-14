@@ -105,6 +105,10 @@
     <Compile Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.Designer.cs">
       <DependentUpon>202106141629440_MaxCapacityPropInRoomEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106141945582_addJointTables.cs" />
+    <Compile Include="Migrations\202106141945582_addJointTables.Designer.cs">
+      <DependentUpon>202106141945582_addJointTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.resx">
       <DependentUpon>202106141629440_MaxCapacityPropInRoomEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141945582_addJointTables.resx">
+      <DependentUpon>202106141945582_addJointTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
