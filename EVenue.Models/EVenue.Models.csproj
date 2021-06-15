@@ -55,8 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerModels\CustomerCreate.cs" />
-    <Compile Include="CustomerOccasionModels\CustomerOccasionCreate.cs" />
-    <Compile Include="CustomerOccasionModels\CustomerOccasionDetail.cs" />
+    <Compile Include="JTVendorOccasionModels\JTVendorOccasionCreate.cs" />
+    <Compile Include="JTVendorOccasionModels\JTVendorOccasionDetail.cs" />
     <Compile Include="OccasionModels\OccasionDetail.cs" />
     <Compile Include="OccasionModels\OccasionEdit.cs" />
     <Compile Include="OccasionModels\OccasionListItem.cs" />
@@ -86,10 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnumProperties\EnumProperties.csproj">
-      <Project>{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}</Project>
+      <Project>{8ed14f3e-bda8-41f3-bceb-6b8ae8ec8b97}</Project>
       <Name>EnumProperties</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
