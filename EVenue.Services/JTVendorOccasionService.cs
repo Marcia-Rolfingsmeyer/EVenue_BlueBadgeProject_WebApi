@@ -47,6 +47,7 @@ namespace EVenue.Services
                 var query = _ctx.VendorOccasions.Where(e => e.OwnerId == _userId)
                             .Select(e => new JTVendorOccasionDetail
                             {
+                                Id = e.Id,
                                 VendorId = e.VendorId,
                                 Vendor = new VendorListItem
                                 {
