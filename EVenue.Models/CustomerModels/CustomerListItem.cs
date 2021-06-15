@@ -15,16 +15,6 @@ namespace EVenue.Models.CustomerModels
 
         public string CustomerLastName { get; set; }
 
-        public string CustomerAddress { get; set; }
-
         public string CustomerPhone { get; set; }
-
-        public string CustomerEmail { get; set; }
-
-        //[Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
-
-        //[Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

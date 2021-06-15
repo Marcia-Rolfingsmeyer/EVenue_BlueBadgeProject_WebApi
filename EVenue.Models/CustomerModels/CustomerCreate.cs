@@ -22,5 +22,7 @@ namespace EVenue.Models.CustomerModels
         public string CustomerPhone { get; set; }
 
         public string CustomerEmail { get; set; }
+
+        public List<int> Occasion { get; set; }
     }
 }
