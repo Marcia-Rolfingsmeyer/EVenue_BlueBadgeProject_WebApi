@@ -34,10 +34,68 @@ namespace EVenue.Services
             }
         }
 
-        //public IEnumerable<RoomOccasionListItem> GetRoomOccasions()
-        //{ 
-            
-        //}
-            
+        public IEnumerable<RoomOccasionListItem> GetRoomOccasions()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .RoomOccasions.ToArray();
+
+                return query
+                  .Where(e => e.OwnerId == _ownerId)
+                  .Select(
+                          e => new RoomOccasionListItem
+                          {
+                              Id = e.Id,
+                              RoomId = e.RoomId,
+                              Room = new Models.RoomModels.RoomListItem
+                              {
+                                  RoomId = e.Room.RoomId,
+                                  RoomName = e.Room.RoomName,
+                                  TypeOfRoom = e.Room.TypeOfRoom,
+                                  MaxCapacity = e.Room.MaxCapacity
+                              },
+                              OccasionId = e.OccasionId,
+                              Occasion = new Models.OccasionModels.OccasionListItem
+                              {
+                                  OccasionId = e.Occasion.OccasionId,
+                                  OccasionName = e.Occasion.OccasionName,
+                                  StartTime = e.Occasion.StartTime
+                              }
+                          }).ToArray();
+            }
+        }
+
+        public bool UpdateRoomOccasion(RoomOccasionEdit updatedEntity)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .RoomOccasions
+                        .SingleOrDefault(e => e.Id == updatedEntity.Id && e.OwnerId == _ownerId);
+
+                entity.RoomId = updatedEntity.RoomId;
+                entity.OccasionId = updatedEntity.OccasionId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteRoomOccasion(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .RoomOccasions
+                        .SingleOrDefault(e => e.Id == id && e.OwnerId == _ownerId);
+
+                ctx.RoomOccasions.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
