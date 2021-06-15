@@ -70,8 +70,7 @@ namespace EVenue.Services
                         new CustomerListItem
                         {
                             CustomerId = e.CustomerId,
-                            CustomerFirstName = e.CustomerFirstName,
-                            CustomerLastName = e.CustomerLastName,
+                            FullName = e.FullName(),
                             CustomerPhone = e.CustomerPhone
                         });
                 return query.ToArray();

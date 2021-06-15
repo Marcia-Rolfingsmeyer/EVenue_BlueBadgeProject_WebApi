@@ -16,5 +16,7 @@ namespace EVenue.Models.CustomerModels
         public string CustomerLastName { get; set; }
 
         public string CustomerPhone { get; set; }
+
+        public string FullName { get; set; }
     }
 }
