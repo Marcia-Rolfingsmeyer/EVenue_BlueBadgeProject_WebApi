@@ -15,7 +15,7 @@ namespace EVenue.Services
 
         public RoomOccasionService(Guid ownerId)
         {
-             _ownerId = ownerId;
+            _ownerId = ownerId;
         }
 
         public bool CreateRoomOccasion(RoomOccasionCreate model)
@@ -27,7 +27,7 @@ namespace EVenue.Services
                 OccasionId = model.OccasionId
             };
 
-            using( var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 ctx.RoomOccasions.Add(entity);
                 return ctx.SaveChanges() == 1;
@@ -36,7 +36,7 @@ namespace EVenue.Services
 
         public IEnumerable<RoomOccasionListItem> GetRoomOccasions()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -64,6 +64,38 @@ namespace EVenue.Services
                                   StartTime = e.Occasion.StartTime
                               }
                           }).ToArray();
+            }
+        }
+
+        public RoomOccasionDetail GetRoomOccasionById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .RoomOccasions
+                        .SingleOrDefault(e => e.Id == id && e.OwnerId == _ownerId);
+
+                return
+                    new RoomOccasionDetail
+                    {
+                        Id = entity.Id,
+                        RoomId = entity.RoomId,
+                        Room = new Models.RoomModels.RoomListItem
+                        {
+                            RoomId = entity.Room.RoomId,
+                            RoomName = entity.Room.RoomName,
+                            TypeOfRoom = entity.Room.TypeOfRoom,
+                            MaxCapacity = entity.Room.MaxCapacity
+                        },
+                        OccasionId = entity.OccasionId,
+                        Occasion = new Models.OccasionModels.OccasionListItem
+                        {
+                            OccasionId = entity.Occasion.OccasionId,
+                            OccasionName = entity.Occasion.OccasionName,
+                            StartTime = entity.Occasion.StartTime
+                        }
+                    };
             }
         }
 
