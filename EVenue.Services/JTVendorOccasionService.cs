@@ -1,6 +1,8 @@
 ﻿using EVenue.Data;
 using EVenue.Data.JointTables;
 using EVenue.Models.JTVendorOccasionModels;
+using EVenue.Models.OccasionModels;
+using EVenue.Models.VendorModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,7 @@ namespace EVenue.Services
         {
             var entity = new VendorOccasion
             {
+                OwnerId = _userId,
                 VendorId = model.VendorId,
                 OccasionId = model.OccasionId
             };
@@ -36,13 +39,42 @@ namespace EVenue.Services
             }
         }
 
+        //GET
+        public IEnumerable<JTVendorOccasionDetail> GetAllJTVendorOccasion()
+        {
+            using (_ctx)
+            {
+                var query = _ctx.VendorOccasions.Where(e => e.OwnerId == _userId)
+                            .Select(e => new JTVendorOccasionDetail
+                            {
+                                VendorId = e.VendorId,
+                                Vendor = new VendorListItem
+                                {
+                                    VendorId = e.Vendor.VendorId,
+                                    VendorName = e.Vendor.VendorName,
+                                    VendorFee = e.Vendor.VendorFee
+                                },
+                                OccasionId = e.OccasionId,
+                                Occasion = new OccasionListItem
+                                {
+                                    OccasionId = e.Occasion.OccasionId,
+                                    OccasionName = e.Occasion.OccasionName,
+                                    StartTime = e.Occasion.StartTime
+                                }
+                            });
+                return query.ToArray();
+            }
+        }
+
         //DELETE
-        //public bool DeleteOccasion(int id)
-        //{
-        //    using (_ctx)
-        //    {
-        //        var entity = _ctx.VendorOccasions.Single(e =>)
-        //    }
-        //}
+        public bool DeleteJTVendorOccasion(int id)
+        {
+            using (_ctx)
+            {
+                var entity = _ctx.VendorOccasions.Single(e => e.OwnerId == _userId && e.Id == id);
+                _ctx.VendorOccasions.Remove(entity);
+                return _ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
