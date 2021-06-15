@@ -10,6 +10,7 @@ namespace EVenue.Models.JTVendorOccasionModels
 {
     public class JTVendorOccasionDetail
     {
+        public int Id { get; set; }
         public int VendorId { get; set; }
         public VendorListItem Vendor { get; set; }
         public int OccasionId { get; set; }

@@ -28,12 +28,12 @@ namespace EVenue.Models.RoomModels
 
         [Required]
         [Display(Name = "Price Per Hour")]
-        [Range(0, int.MaxValue, ErrorMessage = "The price must be greater than 0.")]
+        [RegularExpression(@"^[0-9]*(\.[0-9]{1,2})?$")]
         public double PricePerHour { get; set; }
 
         [Required]
         [Display(Name = "Base Price Per Day")]
-        [Column(TypeName = "double(6, 2)")]
+        [RegularExpression(@"^[0-9]*(\.[0-9]{1,2})?$")]
         public double BasePricePerDay { get; set; }
 
         [Required]
