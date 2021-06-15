@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EVenue.Data.JointTables;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -38,5 +39,7 @@ namespace EVenue.Data
 
         [Required]
         public int MaxCapacity { get; set; }
+
+        public virtual List<RoomOccasion> RoomOccasions { get; set; } = new List<RoomOccasion>();
     }
 }

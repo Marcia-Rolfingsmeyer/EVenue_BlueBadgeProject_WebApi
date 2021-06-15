@@ -113,6 +113,10 @@
     <Compile Include="Migrations\202106150130417_AddOwnerIdToJTs.Designer.cs">
       <DependentUpon>202106150130417_AddOwnerIdToJTs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106150210263_RoomOccasionEntity.cs" />
+    <Compile Include="Migrations\202106150210263_RoomOccasionEntity.Designer.cs">
+      <DependentUpon>202106150210263_RoomOccasionEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106150130417_AddOwnerIdToJTs.resx">
       <DependentUpon>202106150130417_AddOwnerIdToJTs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106150210263_RoomOccasionEntity.resx">
+      <DependentUpon>202106150210263_RoomOccasionEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -38,7 +38,7 @@ namespace EVenue.Data
         //public virtual Vendor Vendor { get; set; }
 
         public virtual IEnumerable<CustomerOccasion> CustomerOccasions { get; set; }
-        public virtual IEnumerable<RoomOccasion> RoomOccasions { get; set; }
+        public virtual List<RoomOccasion> RoomOccasions { get; set; } = new List<RoomOccasion>();
         public virtual IEnumerable<VendorOccasion> VendorOccasions { get; set; }
 
         //public virtual ICollection<Rental> Rentals { get; set; }

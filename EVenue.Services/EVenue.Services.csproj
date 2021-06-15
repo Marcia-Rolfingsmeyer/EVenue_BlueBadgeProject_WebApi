@@ -57,6 +57,7 @@
     <Compile Include="CustomerService.cs" />
     <Compile Include="JTVendorOccasionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomOccasionService.cs" />
     <Compile Include="VendorService.cs" />
     <Compile Include="VenueProfileService.cs" />
     <Compile Include="OccasionService.cs" />
