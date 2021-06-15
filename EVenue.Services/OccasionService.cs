@@ -112,7 +112,7 @@ namespace EVenue.Services
                 entity.StartTime = model.StartTime;
                 entity.EndTime = model.EndTime;
                 entity.VenueProfileId = model.VenueProfileId;
-                //entity.CustomerId = model.CustomerId;
+                //entity.CustomerId = model.CustomerId; CREATE LISTITEMS IN SERVICE AND DETAIL MODEL
                 //entity.RoomId = model.RoomId;
                 //entity.VendorId = model.VendorId;
                 entity.TypeOfOccasion = model.TypeOfOccasion;
