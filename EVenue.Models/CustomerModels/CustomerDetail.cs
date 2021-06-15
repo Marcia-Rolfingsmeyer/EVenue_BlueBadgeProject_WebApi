@@ -27,5 +27,7 @@ namespace EVenue.Models.CustomerModels
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        //public List<OccasionListItem> Occasion { get; set; }
     }
 }

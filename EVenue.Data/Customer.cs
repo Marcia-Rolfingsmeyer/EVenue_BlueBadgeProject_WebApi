@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EVenue.Data.JointTables;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -34,5 +35,7 @@ namespace EVenue.Data
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        public virtual List<CustomerOccasion> CustomerOccasions { get; set; } = new List<CustomerOccasion>();
     }
 }
