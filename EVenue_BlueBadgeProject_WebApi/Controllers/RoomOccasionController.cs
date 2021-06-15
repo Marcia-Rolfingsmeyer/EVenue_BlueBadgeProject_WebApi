@@ -27,15 +27,40 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok();
         }
 
-        //[HttpGet]
+        [HttpGet]
+        public IHttpActionResult Get()
+        {
+            var service = CreateRoomOccasionService();
+            var r = service.GetRoomOccasions();
+            return Ok(r);
+        }
 
 
+        [HttpPut]
+        public IHttpActionResult Put(RoomOccasionEdit model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        //[HttpPut]
+            var service = CreateRoomOccasionService();
 
+            if (!service.UpdateRoomOccasion(model))
+                return InternalServerError();
 
-        //[HttpDelete]
+            return Ok($"You successfully updated Id{model.Id}!");
+        }
 
+        [HttpDelete]
+        [Route("api/RoomOccasion/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateRoomOccasionService();
+
+            if (!service.DeleteRoomOccasion(id))
+                return InternalServerError();
+
+            return Ok("You successfully DELETED the RoomOccasion entity!");
+        }
 
 
         private RoomOccasionService CreateRoomOccasionService()
