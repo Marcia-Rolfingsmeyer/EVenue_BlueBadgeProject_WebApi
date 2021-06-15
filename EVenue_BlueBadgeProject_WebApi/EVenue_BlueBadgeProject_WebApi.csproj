@@ -210,6 +210,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\OccasionController.cs" />
+    <Compile Include="Controllers\RoomOccasionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Controllers\VenueProfileController.cs" />
