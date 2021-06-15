@@ -70,9 +70,8 @@ namespace EVenue.Services
                         new CustomerListItem
                         {
                             CustomerId = e.CustomerId,
-                            CustomerFirstName = e.CustomerFirstName,
-                            CustomerLastName = e.CustomerLastName,
-                            CustomerPhone = e.CustomerPhone,
+                            FullName = e.FullName(),
+                            CustomerPhone = e.CustomerPhone
                         });
                 return query.ToArray();
             }
@@ -89,6 +88,7 @@ namespace EVenue.Services
                 return
                     new CustomerDetail
                     {
+                        CustomerId = entity.CustomerId,
                         CustomerFirstName = entity.CustomerFirstName,
                         CustomerLastName = entity.CustomerLastName,
                         CustomerAddress = entity.CustomerAddress,
