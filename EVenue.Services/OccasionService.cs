@@ -1,5 +1,8 @@
 ﻿using EVenue.Data;
+using EVenue.Models.CustomerModels;
 using EVenue.Models.OccasionModels;
+using EVenue.Models.RoomModels;
+using EVenue.Models.VendorModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +79,26 @@ namespace EVenue.Services
                     StartTime = entity.StartTime,
                     EndTime = entity.EndTime,
                     VenueProfileId = entity.VenueProfileId,
+                    Customers = entity.CustomerOccasions.Select(co => new CustomerListItem
+                        {
+                            CustomerId = co.CustomerId,
+                            CustomerFirstName = co.Customer.CustomerFirstName,
+                            CustomerLastName = co.Customer.CustomerLastName,
+                            CustomerPhone = co.Customer.CustomerPhone
+                        }).ToList(),
+                    Rooms = entity.RoomOccasions.Select(ro => new RoomListItem
+                        {
+                            RoomId = ro.RoomId,
+                            RoomName = ro.Room.RoomName,
+                            TypeOfRoom = ro.Room.TypeOfRoom,
+                            MaxCapacity = ro.Room.MaxCapacity
+                        }).ToList(),
+                    Vendors = entity.VendorOccasions.Select(vo => new VendorListItem
+                        {
+                            VendorId = vo.VendorId,
+                            VendorName = vo.Vendor.VendorName,
+                            VendorFee = vo.Vendor.VendorFee
+                        }).ToList(),
                     //CustomerId = entity.CustomerId,
                     //RoomId = entity.RoomId,
                     //VendorId = entity.VendorId,
