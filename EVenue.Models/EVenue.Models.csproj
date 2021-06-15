@@ -57,6 +57,7 @@
     <Compile Include="CustomerModels\CustomerCreate.cs" />
     <Compile Include="CustomerOccasionModels\CustomerOccasionCreate.cs" />
     <Compile Include="CustomerOccasionModels\CustomerOccasionDetail.cs" />
+    <Compile Include="CustomerOccasionModels\CustomerOccasionListItem.cs" />
     <Compile Include="OccasionModels\OccasionDetail.cs" />
     <Compile Include="OccasionModels\OccasionEdit.cs" />
     <Compile Include="OccasionModels\OccasionListItem.cs" />

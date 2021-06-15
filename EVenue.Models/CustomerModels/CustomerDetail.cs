@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EVenue.Models.OccasionModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -28,6 +29,6 @@ namespace EVenue.Models.CustomerModels
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        //public List<OccasionListItem> Occasion { get; set; }
+        public List<OccasionListItem> Occasions { get; set; }
     }
 }
