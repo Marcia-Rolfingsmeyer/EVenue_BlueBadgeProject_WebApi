@@ -76,8 +76,8 @@ namespace EVenue.Services
                         .RoomOccasions
                         .SingleOrDefault(e => e.Id == updatedEntity.Id && e.OwnerId == _ownerId);
 
-                entity.Room.RoomId = updatedEntity.RoomId;
-                entity.Occasion.OccasionId = updatedEntity.RoomId;
+                entity.RoomId = updatedEntity.RoomId;
+                entity.OccasionId = updatedEntity.OccasionId;
 
                 return ctx.SaveChanges() == 1;
             }
