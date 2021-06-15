@@ -41,28 +41,29 @@ namespace EVenue.Services
             {
                 var query =
                     ctx
-                    .CustomerOccasions
+                    .CustomerOccasions.ToArray();
+                    return query
                     .Where(e => e.OwnerId == _ownerId)
                     .Select(
-                    e =>
+                    e => 
                     new CustomerOccasionListItem
                     {
                         Id = e.Id,
                         CustomerId = e.CustomerId,
                         Customer = new CustomerListItem
                         {
-                            CustomerId = e.Customer.CustomerId,
+                            CustomerId = e.CustomerId,
                             FullName = e.Customer.FullName(),
+                            CustomerPhone = e.Customer.CustomerPhone,
                         },
                         OccasionId = e.OccasionId,
                         Occasion = new OccasionListItem
                         {
-                            OccasionId = e.Occasion.OccasionId,
+                            OccasionId = e.OccasionId,
                             OccasionName = e.Occasion.OccasionName,
                             StartTime = e.Occasion.StartTime
                         }
-                    });
-                return query.ToArray();
+                    }).ToArray();
             }
         }
 

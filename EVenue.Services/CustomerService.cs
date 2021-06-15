@@ -88,6 +88,7 @@ namespace EVenue.Services
                 return
                     new CustomerDetail
                     {
+                        CustomerId = entity.CustomerId,
                         CustomerFirstName = entity.CustomerFirstName,
                         CustomerLastName = entity.CustomerLastName,
                         CustomerAddress = entity.CustomerAddress,
