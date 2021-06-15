@@ -10,6 +10,7 @@ namespace EVenue.Data.JointTables
     public class CustomerOccasion
     {
         public int Id { get; set; }
+        public Guid OwnerId { get; set; }
 
         [ForeignKey(nameof(Customer))]
         public int CustomerId { get; set; }
