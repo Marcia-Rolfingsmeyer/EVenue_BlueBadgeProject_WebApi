@@ -12,6 +12,7 @@ namespace EVenue.Data.JointTables
     {
         [Key]
         public int Id { get; set; }
+        public Guid OwnerId { get; set; }
 
         [ForeignKey(nameof(Room))]
         public int RoomId { get; set; }
