@@ -14,5 +14,8 @@ namespace EVenue.Models.CustomerModels
         public string FullName { get; set; }
 
         public string CustomerPhone { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        public string CustomerEmail { get; set; }
     }
 }

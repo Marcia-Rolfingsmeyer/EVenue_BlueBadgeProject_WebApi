@@ -71,53 +71,57 @@ namespace EVenue.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx
+                var entity = 
+                    ctx
                     .CustomerOccasions
-                    .Single(e => e.Id == id && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.Id == id && e.OwnerId == _ownerId);
                 return
                     new CustomerOccasionDetail
                     {
                         Id = entity.Id,
-                        CustomerId = entity.Customer.CustomerId,
+                        CustomerId = entity.CustomerId,
                         Customer = new CustomerListItem
                         {
                             CustomerId = entity.Customer.CustomerId,
-                            FullName = entity.Customer.FullName()
+                            FullName = entity.Customer.FullName(),
+                            CustomerPhone = entity.Customer.CustomerPhone,
+                            CustomerEmail = entity.Customer.CustomerEmail
                         },
                         OccasionId = entity.OccasionId,
                         Occasion = new OccasionListItem
                         {
+                            OccasionId = entity.Occasion.OccasionId,
                             OccasionName = entity.Occasion.OccasionName,
-                            OccasionId = entity.Occasion.OccasionId
+                            StartTime = entity.Occasion.StartTime
                         }
                     };
             }
         }
 
-        public bool UpdateCustomerOccasion(CustomerOccasionDetail model)
+        public bool UpdateCustomerOccasion(CustomerOccasionDetail updateEntity)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = 
                     ctx
                     .CustomerOccasions
-                    .Single(e => e.Id == model.Id && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.Id == updateEntity.Id && e.OwnerId == _ownerId);
 
-                entity.CustomerId = model.CustomerId;
-                entity.OccasionId = model.OccasionId;
+                entity.CustomerId = updateEntity.CustomerId;
+                entity.OccasionId = updateEntity.OccasionId;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteCustomerOccasion (int customerOccasionId)
+        public bool DeleteCustomerOccasion (int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .CustomerOccasions
-                    .Single(e => e.Id == customerOccasionId && e.OwnerId == _ownerId);
+                    .Single(e => e.Id == id && e.OwnerId == _ownerId);
                 ctx.CustomerOccasions.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

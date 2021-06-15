@@ -71,7 +71,8 @@ namespace EVenue.Services
                         {
                             CustomerId = e.CustomerId,
                             FullName = e.FullName(),
-                            CustomerPhone = e.CustomerPhone
+                            CustomerPhone = e.CustomerPhone,
+                            CustomerEmail = e.CustomerEmail
                         });
                 return query.ToArray();
             }
@@ -84,13 +85,12 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerId == id && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.CustomerId == id && e.OwnerId == _ownerId);
                 return
                     new CustomerDetail
                     {
                         CustomerId = entity.CustomerId,
-                        CustomerFirstName = entity.CustomerFirstName,
-                        CustomerLastName = entity.CustomerLastName,
+                        FullName = entity.FullName(),
                         CustomerAddress = entity.CustomerAddress,
                         CustomerEmail = entity.CustomerEmail,
                         CustomerPhone = entity.CustomerPhone,
@@ -100,7 +100,8 @@ namespace EVenue.Services
                         Occasions = entity.CustomerOccasions.Select(c => new OccasionListItem
                         {
                             OccasionId = c.OccasionId,
-                            OccasionName = c.Occasion.OccasionName
+                            OccasionName = c.Occasion.OccasionName,
+                            StartTime = c.Occasion.StartTime
                         }).ToList()
                     };
             }
@@ -113,7 +114,7 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerId == model.CustomerId && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.CustomerId == model.CustomerId && e.OwnerId == _ownerId);
 
                 entity.CustomerFirstName = model.CustomerFirstName;
                 entity.CustomerLastName = model.CustomerLastName;
@@ -132,7 +133,7 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerId == customerId && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.CustomerId == customerId && e.OwnerId == _ownerId);
                 
                 ctx.Customers.Remove(entity);
 

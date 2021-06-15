@@ -12,15 +12,11 @@ namespace EVenue.Models.CustomerModels
     {
         [Required]
         public int CustomerId { get; set; }
-
-        public string CustomerFirstName { get; set; }
-
-        public string CustomerLastName { get; set; }
-
         public string CustomerAddress { get; set; }
 
         public string CustomerPhone { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string CustomerEmail { get; set; }
 
         [Display(Name = "Modified")]
@@ -30,5 +26,7 @@ namespace EVenue.Models.CustomerModels
         public DateTimeOffset CreatedUtc { get; set; }
 
         public List<OccasionListItem> Occasions { get; set; }
+
+        public string FullName { get; set; }
     }
 }
