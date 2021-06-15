@@ -33,5 +33,11 @@ namespace EVenue.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //public IEnumerable<RoomOccasionListItem> GetRoomOccasions()
+        //{ 
+            
+        //}
+            
     }
 }
