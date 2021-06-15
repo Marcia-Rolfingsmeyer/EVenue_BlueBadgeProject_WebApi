@@ -27,6 +27,17 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok();
         }
 
+        //[HttpGet]
+
+
+
+        //[HttpPut]
+
+
+        //[HttpDelete]
+
+
+
         private RoomOccasionService CreateRoomOccasionService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
