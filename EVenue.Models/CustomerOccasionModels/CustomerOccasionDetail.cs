@@ -17,5 +17,7 @@ namespace EVenue.Models.CustomerOccasionModels
         
         public int OccasionId { get; set; }
         public OccasionListItem Occasion { get; set; }
+
+
     }
 }

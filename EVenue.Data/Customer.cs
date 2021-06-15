@@ -37,5 +37,7 @@ namespace EVenue.Data
         public DateTimeOffset? ModifiedUtc { get; set; }
 
         public virtual List<CustomerOccasion> CustomerOccasions { get; set; } = new List<CustomerOccasion>();
+
+        public string FullName() => $"{CustomerFirstName} {CustomerLastName}";
     }
 }

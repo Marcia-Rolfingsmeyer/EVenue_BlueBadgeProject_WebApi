@@ -22,6 +22,7 @@ namespace EVenue.Services
             var entity =
                 new CustomerOccasion()
                 {
+                    OwnerId = _ownerId,
                     CustomerId = model.CustomerId,
                     OccasionId = model.OccasionId
                 };
@@ -48,7 +49,7 @@ namespace EVenue.Services
                         CustomerId = e.CustomerId,
                         Customer = new Models.CustomerModels.CustomerListItem
                         {
-                            //CustomerFirstName = e.Customer//.FullName(),
+                            
                             CustomerId = e.CustomerId
                         },
                         OccasionId = e.OccasionId,
@@ -67,7 +68,7 @@ namespace EVenue.Services
             {
                 var entity = ctx
                     .CustomerOccasions
-                    .Single(e => e.Id == id);
+                    .Single(e => e.Id == id && e.OwnerId == _ownerId);
                 return
                     new CustomerOccasionDetail
                     {

@@ -72,7 +72,7 @@ namespace EVenue.Services
                             CustomerId = e.CustomerId,
                             CustomerFirstName = e.CustomerFirstName,
                             CustomerLastName = e.CustomerLastName,
-                            CustomerPhone = e.CustomerPhone,
+                            CustomerPhone = e.CustomerPhone
                         });
                 return query.ToArray();
             }
