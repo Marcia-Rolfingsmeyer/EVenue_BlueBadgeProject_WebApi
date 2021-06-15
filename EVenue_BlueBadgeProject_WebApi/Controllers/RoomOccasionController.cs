@@ -35,6 +35,18 @@ namespace EVenue_BlueBadgeProject_WebApi.Controllers
             return Ok(r);
         }
 
+        [HttpGet]
+        [Route("api/RoomOccasion/{id}")]
+        public IHttpActionResult GetById(int id)
+        {
+            var service = CreateRoomOccasionService();
+            var entity = service.GetRoomOccasionById(id);
+
+            if (entity == null)
+                return NotFound();
+
+            return Ok(entity);
+        }
 
         [HttpPut]
         public IHttpActionResult Put(RoomOccasionEdit model)
