@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EVenue.Data.JointTables;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,6 +26,6 @@ namespace EVenue.Data
         [Display(Name = "Vendor's Fee")]
         public double VendorFee { get; set; }
 
-        public virtual List<Occasion> Occasions { get; set; } = new List<Occasion>();
+        public virtual List<VendorOccasion> VendorOccasions { get; set; } = new List<VendorOccasion>();
     }
 }
