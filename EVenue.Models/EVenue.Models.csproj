@@ -59,6 +59,7 @@
     <Compile Include="CustomerOccasionModels\CustomerOccasionDetail.cs" />
 	<Compile Include="JTVendorOccasionModels\JTVendorOccasionCreate.cs" />
     <Compile Include="JTVendorOccasionModels\JTVendorOccasionDetail.cs" />
+    <Compile Include="CustomerOccasionModels\CustomerOccasionListItem.cs" />
     <Compile Include="OccasionModels\OccasionDetail.cs" />
     <Compile Include="OccasionModels\OccasionEdit.cs" />
     <Compile Include="OccasionModels\OccasionListItem.cs" />

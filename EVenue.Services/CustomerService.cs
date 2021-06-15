@@ -1,6 +1,7 @@
 ﻿using EVenue.Data;
 using EVenue.Data.JointTables;
 using EVenue.Models.CustomerModels;
+using EVenue.Models.OccasionModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +64,7 @@ namespace EVenue.Services
                 var query =
                     ctx
                     .Customers.AsEnumerable()
-                    //.Where(e => e.OwnerId != null)
+                    .Where(e => e.OwnerId != null)
                     .Select(
                         e =>
                         new CustomerListItem
@@ -94,12 +95,13 @@ namespace EVenue.Services
                         CustomerEmail = entity.CustomerEmail,
                         CustomerPhone = entity.CustomerPhone,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
-                        
-                        //Occasions = entity.CustomerOccasions.Select(c=> new OccasionListItem){
-                        //    OccasionId = c.OccasionId,
-                        //    OccasionName = c.Occasion.OccasionName
-                        //}).ToList()
+                        ModifiedUtc = entity.ModifiedUtc,
+
+                        Occasions = entity.CustomerOccasions.Select(c => new OccasionListItem
+                        {
+                            OccasionId = c.OccasionId,
+                            OccasionName = c.Occasion.OccasionName
+                        }).ToList()
                     };
             }
         }

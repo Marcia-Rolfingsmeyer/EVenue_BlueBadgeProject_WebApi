@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace EVenue.Models.CustomerOccasionModels
 {
-    public class CustomerOccasionDetail
+    public class CustomerOccasionListItem
     {
         public int Id { get; set; }
-        
+
         public int CustomerId { get; set; }
         public CustomerListItem Customer { get; set; }
-        
+
         public int OccasionId { get; set; }
         public OccasionListItem Occasion { get; set; }
     }
