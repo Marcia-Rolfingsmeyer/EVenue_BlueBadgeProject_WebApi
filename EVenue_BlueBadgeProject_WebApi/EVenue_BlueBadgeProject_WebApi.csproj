@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JTVendorOccasionController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\OccasionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
