@@ -15,13 +15,14 @@ namespace EVenue.Services
 
         public RoomOccasionService(Guid ownerId)
         {
-            ownerId = _ownerId;
+             _ownerId = ownerId;
         }
 
         public bool CreateRoomOccasion(RoomOccasionCreate model)
         {
             var entity = new RoomOccasion()
             {
+                OwnerId = _ownerId,
                 RoomId = model.RoomId,
                 OccasionId = model.OccasionId
             };
