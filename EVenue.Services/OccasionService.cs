@@ -82,8 +82,7 @@ namespace EVenue.Services
                     Customers = entity.CustomerOccasions.Select(co => new CustomerListItem
                         {
                             CustomerId = co.CustomerId,
-                            CustomerFirstName = co.Customer.CustomerFirstName,
-                            CustomerLastName = co.Customer.CustomerLastName,
+                            FullName = co.Customer.FullName(),
                             CustomerPhone = co.Customer.CustomerPhone
                         }).ToList(),
                     Rooms = entity.RoomOccasions.Select(ro => new RoomListItem
