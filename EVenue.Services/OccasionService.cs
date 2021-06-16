@@ -33,9 +33,6 @@ namespace EVenue.Services
                 StartTime = model.StartTime,
                 EndTime = model.EndTime,
                 VenueProfileId = model.VenueProfileId,
-                //CustomerId = model.CustomerId,
-                //RoomId = model.RoomId,
-                //VendorId = model.VendorId,
                 TypeOfOccasion = model.TypeOfOccasion
             };
 
@@ -99,9 +96,6 @@ namespace EVenue.Services
                             VendorName = vo.Vendor.VendorName,
                             VendorFee = vo.Vendor.VendorFee
                         }).ToList(),
-                    //CustomerId = entity.CustomerId,
-                    //RoomId = entity.RoomId,
-                    //VendorId = entity.VendorId,
                     TypeOfOccasion = entity.TypeOfOccasion,
                     TotalPrice = entity.TotalPrice()
                 };
@@ -135,9 +129,6 @@ namespace EVenue.Services
                 entity.StartTime = model.StartTime;
                 entity.EndTime = model.EndTime;
                 entity.VenueProfileId = model.VenueProfileId;
-                //entity.CustomerId = model.CustomerId; CREATE LISTITEMS IN SERVICE AND DETAIL MODEL
-                //entity.RoomId = model.RoomId;
-                //entity.VendorId = model.VendorId;
                 entity.TypeOfOccasion = model.TypeOfOccasion;
 
                 return ctx.SaveChanges() == 1;

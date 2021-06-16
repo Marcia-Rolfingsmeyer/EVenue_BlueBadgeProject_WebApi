@@ -25,27 +25,10 @@ namespace EVenue.Data
         public int VenueProfileId { get; set; }
         public virtual VenueProfile VenueProfile { get; set; }
 
-        //[ForeignKey(nameof(Customer))]
-        //public int CustomerId { get; set; }
-        //public virtual Customer Customer { get; set; }
-
-        //[ForeignKey(nameof(Room))]
-        //public int RoomId { get; set; }
-        //public virtual Room Room { get; set; }
-
-        //[ForeignKey(nameof(Vendor))]
-        //public int VendorId { get; set; }
-        //public virtual Vendor Vendor { get; set; }
-
+        //Joining Tables
         public virtual List<CustomerOccasion> CustomerOccasions { get; set; } = new List<CustomerOccasion>();
         public virtual List<RoomOccasion> RoomOccasions { get; set; } = new List<RoomOccasion>();
         public virtual List<VendorOccasion> VendorOccasions { get; set; } = new List<VendorOccasion>();
-
-        //public virtual ICollection<Rental> Rentals { get; set; }
-        //public virtual ICollection<Room> Rooms { get; set; }
-        //public virtual ICollection<Vendor> Vendors { get; set; }
-
-
 
         //TotalPrice Method
         public double TotalPrice()
