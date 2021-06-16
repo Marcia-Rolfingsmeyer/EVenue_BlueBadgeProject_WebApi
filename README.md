@@ -56,13 +56,6 @@ To view project clone from GitHub:
 
 
 
-## Sample View
--
--
--
-
-
-
 ## Acknowledgements
 **Instructor** [@MichaelPabody](https://elevenfifty.org/team/michael-pabody/), [@Andrew Torr](https://elevenfifty.org/team/andrew-torr/), @JacobBrown & **TA's** @BrianCampbell, @AdamMetcalf, @MichellReed, and the LearningGym - for helping with instruction, debugging, encouragement, and your patience!
 
@@ -85,6 +78,7 @@ Additionally, [@1150Academy](https://elevenfifty.org/) who brought this together
 #### GitHub
 - [Feature Branches](https://bocoup.com/blog/git-workflow-walkthrough-feature-branches)
 - [Git Undo Merge](https://www.datree.io/resources/git-undo-merge)
+- [Jacob Brown - JBUniversity](https://github.com/JacobBrown4/JBUniversity)
 
 #### ReadMe 
 - [Bull Dog Job - Why Make a ReadMe](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
@@ -95,8 +89,8 @@ Additionally, [@1150Academy](https://elevenfifty.org/) who brought this together
 
 ## Contact Info
 - rolfingsmeyer@gmail.com
--
--
+- alexandrocazares@me.com
+- a.krumsieg@gmail.com
 
 
 
