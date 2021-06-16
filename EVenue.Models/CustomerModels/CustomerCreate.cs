@@ -21,6 +21,7 @@ namespace EVenue.Models.CustomerModels
         [Required]
         public string CustomerPhone { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string CustomerEmail { get; set; }
 
         public List<int> Occasion { get; set; }
