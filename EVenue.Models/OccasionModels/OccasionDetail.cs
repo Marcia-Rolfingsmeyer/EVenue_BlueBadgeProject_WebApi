@@ -26,13 +26,10 @@ namespace EVenue.Models.OccasionModels
 
         public int VenueProfileId { get; set; }
 
-        //public int CustomerId { get; set; }
         public List<CustomerListItem> Customers { get; set; }
 
-        //public int RoomId { get; set; }
         public List<RoomListItem> Rooms { get; set; }
 
-        //public int VendorId { get; set; }
         public List<VendorListItem> Vendors { get; set; }
 
         public double TotalPrice { get; set; }
