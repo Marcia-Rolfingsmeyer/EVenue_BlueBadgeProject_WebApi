@@ -55,6 +55,7 @@ namespace EVenue.Services
                             CustomerId = e.CustomerId,
                             FullName = e.Customer.FullName(),
                             CustomerPhone = e.Customer.CustomerPhone,
+                            CustomerEmail = e.Customer.CustomerEmail
                         },
                         OccasionId = e.OccasionId,
                         Occasion = new OccasionListItem
