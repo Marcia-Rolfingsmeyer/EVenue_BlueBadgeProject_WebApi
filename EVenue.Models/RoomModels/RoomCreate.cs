@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,12 +28,12 @@ namespace EVenue.Models.RoomModels
 
         [Required]
         [Display(Name = "Price Per Hour")]
-        [Range(0, int.MaxValue, ErrorMessage = "The price must be greater than 0.")]
+        [RegularExpression(@"^[0-9]*(\.[0-9]{1,2})?$")]
         public double PricePerHour { get; set; }
 
         [Required]
         [Display(Name = "Base Price Per Day")]
-        [Range(0, int.MaxValue, ErrorMessage = "The price must be greater than 0.")]
+        [RegularExpression(@"^[0-9]*(\.[0-9]{1,2})?$")]
         public double BasePricePerDay { get; set; }
 
         [Required]

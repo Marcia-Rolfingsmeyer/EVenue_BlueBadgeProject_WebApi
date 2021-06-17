@@ -86,6 +86,9 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="JointTables\CustomerOccasion.cs" />
+    <Compile Include="JointTables\RoomOccasion.cs" />
+    <Compile Include="JointTables\VendorOccasion.cs" />
     <Compile Include="Migrations\202106111423290_InitialMigration.cs" />
     <Compile Include="Migrations\202106111423290_InitialMigration.Designer.cs">
       <DependentUpon>202106111423290_InitialMigration.cs</DependentUpon>
@@ -101,6 +104,22 @@
     <Compile Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.cs" />
     <Compile Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.Designer.cs">
       <DependentUpon>202106141629440_MaxCapacityPropInRoomEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141945582_addJointTables.cs" />
+    <Compile Include="Migrations\202106141945582_addJointTables.Designer.cs">
+      <DependentUpon>202106141945582_addJointTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106150130417_AddOwnerIdToJTs.cs" />
+    <Compile Include="Migrations\202106150130417_AddOwnerIdToJTs.Designer.cs">
+      <DependentUpon>202106150130417_AddOwnerIdToJTs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106150210263_RoomOccasionEntity.cs" />
+    <Compile Include="Migrations\202106150210263_RoomOccasionEntity.Designer.cs">
+      <DependentUpon>202106150210263_RoomOccasionEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106151828313_UnknownPendingChanges.cs" />
+    <Compile Include="Migrations\202106151828313_UnknownPendingChanges.Designer.cs">
+      <DependentUpon>202106151828313_UnknownPendingChanges.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Occasion.cs" />
@@ -126,10 +145,22 @@
     <EmbeddedResource Include="Migrations\202106141629440_MaxCapacityPropInRoomEntity.resx">
       <DependentUpon>202106141629440_MaxCapacityPropInRoomEntity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141945582_addJointTables.resx">
+      <DependentUpon>202106141945582_addJointTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106150130417_AddOwnerIdToJTs.resx">
+      <DependentUpon>202106150130417_AddOwnerIdToJTs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106150210263_RoomOccasionEntity.resx">
+      <DependentUpon>202106150210263_RoomOccasionEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106151828313_UnknownPendingChanges.resx">
+      <DependentUpon>202106151828313_UnknownPendingChanges.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnumProperties\EnumProperties.csproj">
-      <Project>{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}</Project>
+      <Project>{8ed14f3e-bda8-41f3-bceb-6b8ae8ec8b97}</Project>
       <Name>EnumProperties</Name>
     </ProjectReference>
   </ItemGroup>

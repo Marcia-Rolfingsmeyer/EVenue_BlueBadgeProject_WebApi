@@ -20,11 +20,5 @@ namespace EVenue.Models.OccasionModels
         public DateTime EndTime { get; set; }
 
         public int VenueProfileId { get; set; }
-
-        public int CustomerId { get; set; }
-
-        public int RoomId { get; set; }
-
-        public int VendorId { get; set; }
     }
 }

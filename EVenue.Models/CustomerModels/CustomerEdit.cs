@@ -19,9 +19,9 @@ namespace EVenue.Models.CustomerModels
 
         public string CustomerPhone { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string CustomerEmail { get; set; }
 
-        //[Display(Name = "Modified")]
-        //public DateTimeOffset? ModifiedUtc { get; set; }
+        public string FullName() => $"{CustomerFirstName} {CustomerLastName}";
     }
 }

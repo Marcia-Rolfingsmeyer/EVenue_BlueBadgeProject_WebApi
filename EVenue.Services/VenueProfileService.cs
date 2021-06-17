@@ -22,7 +22,6 @@ namespace EVenue.Services
             var entity = new VenueProfile()
             {
                 OwnerId = _ownerId,
-                VenueProfileId = model.VenueProfileId,
                 VenueName = model.VenueName,
                 VenueContactPerson = model.VenueContactPerson,
                 VenuePhone = model.VenuePhone,
@@ -102,7 +101,6 @@ namespace EVenue.Services
                 entity.VenuePhone = updateVenue.VenuePhone;
                 entity.VenueAddress = updateVenue.VenueAddress;
                 entity.VenueEmail = updateVenue.VenueEmail;
-                entity.VenueProfileId = updateVenue.VenueProfileId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1; 
             }

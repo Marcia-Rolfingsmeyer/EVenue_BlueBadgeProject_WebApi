@@ -1,5 +1,7 @@
 ﻿using EVenue.Data;
+using EVenue.Data.JointTables;
 using EVenue.Models.CustomerModels;
+using EVenue.Models.OccasionModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,24 +19,41 @@ namespace EVenue.Services
             _ownerId = ownerId;
         }
 
-        public bool CreateCustomer(Models.CustomerModels.CustomerCreate model)
+        public bool CreateCustomer(CustomerCreate model)
         {
-            var entity = new Customer()
-            {
-                OwnerId = _ownerId,
-                CustomerId = model.CustomerId,
-                CustomerFirstName = model.CustomerFirstName,
-                CustomerLastName = model.CustomerLastName,
-                CustomerAddress = model.CustomerAddress,
-                CustomerPhone = model.CustomerPhone,
-                CustomerEmail = model.CustomerEmail,
-                CreatedUtc = DateTimeOffset.Now
+            var entity = 
+                new Customer()
+                {
+                    OwnerId = _ownerId,
+                    CustomerFirstName = model.CustomerFirstName,
+                    CustomerLastName = model.CustomerLastName,
+                    CustomerAddress = model.CustomerAddress,
+                    CustomerPhone = model.CustomerPhone,
+                    CustomerEmail = model.CustomerEmail,
+                    CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Customers.Add(entity);
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+                int customerId = ctx.Customers.AsEnumerable().Last().CustomerId;
+                int savedObjects = 0;
+                if (model.Occasion != null)
+                {
+                    foreach (int occasion in model.Occasion)
+                    {
+                        CustomerOccasion customerOccasion = new CustomerOccasion
+                        {
+                            OccasionId = occasion,
+                            CustomerId = customerId
+                        };
+                        ctx.CustomerOccasions.Add(customerOccasion);
+                        ++savedObjects;
+                    }
+                }
+
+                return ctx.SaveChanges() == savedObjects;
             }
         }
 
@@ -44,20 +63,16 @@ namespace EVenue.Services
             {
                 var query =
                     ctx
-                    .Customers
+                    .Customers.AsEnumerable()
                     .Where(e => e.OwnerId != null)
                     .Select(
                         e =>
                         new CustomerListItem
                         {
                             CustomerId = e.CustomerId,
-                            CustomerFirstName = e.CustomerFirstName,
-                            CustomerLastName = e.CustomerLastName,
-                            CustomerAddress = e.CustomerAddress,
-                            CustomerEmail = e.CustomerEmail,
+                            FullName = e.FullName(),
                             CustomerPhone = e.CustomerPhone,
-                            CreatedUtc = e.CreatedUtc,
-                            ModifiedUtc = e.ModifiedUtc
+                            CustomerEmail = e.CustomerEmail
                         });
                 return query.ToArray();
             }
@@ -70,18 +85,24 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerId == id && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.CustomerId == id && e.OwnerId == _ownerId);
                 return
                     new CustomerDetail
                     {
                         CustomerId = entity.CustomerId,
-                        CustomerFirstName = entity.CustomerFirstName,
-                        CustomerLastName = entity.CustomerLastName,
+                        FullName = entity.FullName(),
                         CustomerAddress = entity.CustomerAddress,
                         CustomerEmail = entity.CustomerEmail,
                         CustomerPhone = entity.CustomerPhone,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ModifiedUtc = entity.ModifiedUtc,
+
+                        Occasions = entity.CustomerOccasions.Select(c => new OccasionListItem
+                        {
+                            OccasionId = c.OccasionId,
+                            OccasionName = c.Occasion.OccasionName,
+                            StartTime = c.Occasion.StartTime
+                        }).ToList()
                     };
             }
         }
@@ -93,7 +114,7 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerId == model.CustomerId && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.CustomerId == model.CustomerId && e.OwnerId == _ownerId);
 
                 entity.CustomerFirstName = model.CustomerFirstName;
                 entity.CustomerLastName = model.CustomerLastName;
@@ -112,7 +133,7 @@ namespace EVenue.Services
                 var entity =
                     ctx
                     .Customers
-                    .Single(e => e.CustomerId == customerId && e.OwnerId == _ownerId);
+                    .SingleOrDefault(e => e.CustomerId == customerId && e.OwnerId == _ownerId);
                 
                 ctx.Customers.Remove(entity);
 

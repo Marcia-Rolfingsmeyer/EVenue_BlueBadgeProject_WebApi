@@ -54,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerOccasionService.cs" />
     <Compile Include="CustomerService.cs" />
+    <Compile Include="JTVendorOccasionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomOccasionService.cs" />
     <Compile Include="VendorService.cs" />
     <Compile Include="VenueProfileService.cs" />
     <Compile Include="OccasionService.cs" />
@@ -68,15 +71,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnumProperties\EnumProperties.csproj">
-      <Project>{8ED14F3E-BDA8-41F3-BCEB-6B8AE8EC8B97}</Project>
+      <Project>{8ed14f3e-bda8-41f3-bceb-6b8ae8ec8b97}</Project>
       <Name>EnumProperties</Name>
     </ProjectReference>
     <ProjectReference Include="..\EVenue.Data\EVenue.Data.csproj">
-      <Project>{A54696F0-431D-4E70-8B22-67102FA7C08E}</Project>
+      <Project>{a54696f0-431d-4e70-8b22-67102fa7c08e}</Project>
       <Name>EVenue.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\EVenue.Models\EVenue.Models.csproj">
-      <Project>{C0581698-802F-4E8B-AC5F-536005FB8165}</Project>
+      <Project>{c0581698-802f-4e8b-ac5f-536005fb8165}</Project>
       <Name>EVenue.Models</Name>
     </ProjectReference>
   </ItemGroup>
