@@ -1,10 +1,9 @@
 # Table of Contents
 * **[BlueBadgeProject](#blue-badge-project)**
-* **[EVenue Project Features](#evenue-project-features)**
+* **[Evenue Project Features](#evenue-project-features)**
 * **[Contributors](#blue-badge-project)**
 * **[Technologies](#technologies)**
 * **[Installation](#installation)**
-* **[Sample View](#sample-view)**
 * **[Acknowledgements](#acknowledgements)**
 * **[Resources](#resources)**
 * **[Contact Info](#contact-info)**
@@ -15,7 +14,7 @@
 ElevenFifty Academy gives you 3 challenges to utilize learned knowledge for C#, BlueBadge is the 2nd step for software development.  
 - Come up with an idea for an application that will utilize at least one custom data table for each member of your group
 - Including at least one Foreign Key relationship
-- Create a [wireframe](https://lucid.app/lucidchart/invitations/accept/inv_f7ce65cc-f26b-46d9-bdb9-8e4846c25e18) 
+- Create a [Entity Relationship Diagram (ERD)](https://lucid.app/lucidchart/invitations/accept/inv_f7ce65cc-f26b-46d9-bdb9-8e4846c25e18) 
 - Build out an n-tier structured API including the following tiers
     - Data
     - Models
@@ -25,7 +24,7 @@ ElevenFifty Academy gives you 3 challenges to utilize learned knowledge for C#, 
 
 
 ## Evenue Project Features
-This software was developed for Venue Management (EVenue).  A venue can login to manage the following: 
+This software was developed for Venue Management (Evenue).  A user logins in to manage the following: 
 - Customers
 - Occasions
 - Rooms used in the Venue 
@@ -34,19 +33,17 @@ This software was developed for Venue Management (EVenue).  A venue can login to
 
 
 ## Contributors
-- Alexandro Cazanro
-- Aaron Krumsieg
+- [Alexandro Cazares] (https://github.com/CazaresCode)
+- [Aaron Krumsieg] (https://github.com/akrumsieg)
 
 
 
 ## Technologies
 - Visual Studio 2019 Community
-- C# .Net Framework
+- .NET Web API Framework
+- C#, HTML, JavaScript
 - GitHub
 - Postman
-- YouTube
-- Google
-- Instructors
 
 
 
@@ -90,7 +87,7 @@ Additionally, [@1150Academy](https://elevenfifty.org/) who brought this together
 
 ## Contact Info
 - rolfingsmeyer@gmail.com
-- alexandrocazares@me.com
+- CazaresCode@gmail.com
 - a.krumsieg@gmail.com
 
 
