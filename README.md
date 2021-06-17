@@ -52,8 +52,8 @@ This software was developed for Venue Management (EVenue).  A venue can login to
 
 ## Installation
 To view project clone from GitHub: 
-[GitHub - Marcia Rolfingsmeyer BlueBadgeProject](https://github.com/Marcia-Rolfingsmeyer/EVenue_BlueBadgeProject_WebApi)
-[Evenue API](https://documenter.getpostman.com/view/15929016/TzeWGndt)
+- [GitHub - Marcia Rolfingsmeyer BlueBadgeProject](https://github.com/Marcia-Rolfingsmeyer/EVenue_BlueBadgeProject_WebApi)
+- [Evenue API](https://documenter.getpostman.com/view/15929016/TzeWGndt)
 
 
 
