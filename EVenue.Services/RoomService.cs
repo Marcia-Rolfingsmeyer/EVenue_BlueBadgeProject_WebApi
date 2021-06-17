@@ -94,7 +94,7 @@ namespace EVenue.Services
                 var query =
                     ctx
                         .Rooms
-                        .Where(s => s.MaxCapacity >= numberOfAttendees)
+                        .Where(s => s.MaxCapacity >= numberOfAttendees && s.OwnerId == _ownerId)
                         .Select(
                                 e => new RoomListItem
                                 {
@@ -105,7 +105,6 @@ namespace EVenue.Services
                                 });
 
                 return query.ToArray();
-
             }
         }
 

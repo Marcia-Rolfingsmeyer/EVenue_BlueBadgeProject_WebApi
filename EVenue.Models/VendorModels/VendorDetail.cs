@@ -12,8 +12,6 @@ namespace EVenue.Models.VendorModels
 
         public string VendorName { get; set; }
 
-        //public VendorType TypeOfVendor { get; set; }
-
         public double VendorFee { get; set; }
     }
 }

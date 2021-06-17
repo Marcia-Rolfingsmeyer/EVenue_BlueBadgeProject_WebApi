@@ -13,8 +13,6 @@ namespace EVenue.Models.VendorModels
         [Display(Name = "Vendor's Name")]
         public string VendorName { get; set; }
 
-        //public VendorType TypeOfVendor { get; set; }
-
         [Required]
         [Display(Name = "Vendor's Fee")]
         public double VendorFee { get; set; }
