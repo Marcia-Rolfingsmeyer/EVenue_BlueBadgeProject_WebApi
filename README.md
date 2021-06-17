@@ -15,7 +15,7 @@
 ElevenFifty Academy gives you 3 challenges to utilize learned knowledge for C#, BlueBadge is the 2nd step for software development.  
 - Come up with an idea for an application that will utilize at least one custom data table for each member of your group
 - Including at least one Foreign Key relationship
-- Create a [wireframe](https://lucid.app/lucidchart/invitations/accept/inv_8dd0aa4a-7829-4d1c-82a7-e567a071346f) 
+- Create a [wireframe](https://lucid.app/lucidchart/invitations/accept/inv_f7ce65cc-f26b-46d9-bdb9-8e4846c25e18) 
 - Build out an n-tier structured API including the following tiers
     - Data
     - Models
@@ -53,6 +53,7 @@ This software was developed for Venue Management (EVenue).  A venue can login to
 ## Installation
 To view project clone from GitHub: 
 [GitHub - Marcia Rolfingsmeyer BlueBadgeProject](https://github.com/Marcia-Rolfingsmeyer/EVenue_BlueBadgeProject_WebApi)
+[Evenue API](https://documenter.getpostman.com/view/15929016/TzeWGndt)
 
 
 
